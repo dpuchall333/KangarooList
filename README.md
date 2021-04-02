@@ -66,7 +66,7 @@ The application will store Users (username, password, university), Bookmarks Lis
   }  
 ```
 
-[Link to Commented First Draft Schema]()
+[Link to Commented First Draft Schema](/master/final-project-schema-milestone.js)
 
 
 ## Wireframes
