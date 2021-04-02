@@ -23,7 +23,7 @@ const KangarooList = new Schema({
     //username: provided by User
     university: {type:String, required: false},
     list_name: {type:String},
-    pages : [{type: Schema.Types.ObjectId, ref:'Page'}];
+    pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
     header: {type:String},
 
 });
