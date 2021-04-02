@@ -50,6 +50,13 @@ app.post('/create/page',(req,res){
 
 });
 
+app.get('/List',(req,res)){
+    //view list and pages associated with each lsit
+}
+
+app.get('/page/:page_name', (req,res)){
+    //Use URL Slugs here 
+}
 app.get('/create/List',(req,res){
 
 });
@@ -63,6 +70,12 @@ app.get('profile',(req,res){
 })
 app.post('profile',(req,res){
     //Use a form to take inputs concerning user values (i.e university, interests etc. )
+})
+app.get('/forum',(req,res)){
+
+}
+app.post('/forum',(req,res){
+    //Use to take in form values required to post on forum 
 })
 
 app.listen(3000);
