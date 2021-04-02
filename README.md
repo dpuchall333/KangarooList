@@ -66,7 +66,7 @@ The application will store Users (username, password, university), Bookmarks Lis
   }  
 ```
 
-[Link to Commented First Draft Schema](final-project-schema-milestone.js)
+[Link to Commented First Draft Schema](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/final-project-schema-milestone1.js)
 
 
 ## Wireframes
