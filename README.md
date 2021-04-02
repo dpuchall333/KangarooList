@@ -21,6 +21,7 @@ Final Project: Milestone #1
 The application will store Users (username, password, university), Bookmarks List, and User Notes
 1. User's will be able to have multiple Bookmark lists based on topic and priority (reference documents)
 2. Each Bookmark list can have multiple bookmarks (reference pages), there will potentially be a limit to number of bookmarks, but this is to be determined for later on in the project (embedded documents)
+3. Each Bookmark (page) in a List uses a mongoose URL Slug for references 
 
 
 **User Example**
