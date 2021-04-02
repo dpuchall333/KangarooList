@@ -23,7 +23,7 @@ The application will store Users (username, password, university), Bookmarks Lis
 2. Each Bookmark list can have multiple bookmarks (reference pages), there will potentially be a limit to number of bookmarks, but this is to be determined for later on in the project (embedded documents)
 
 
-User Example
+**User Example**
 ```javascript
   {
       username: "NYUstudent",
@@ -33,7 +33,7 @@ User Example
       likes: [ 'nyc' ] //array of liked topics (for forum component)
   }  
 ```
-Bookmarks List (aka Kangaroo List)
+**Bookmarks List** (aka Kangaroo List)
 ```javascript
   {
       username: "NYUstudent",//Who List belongs too
@@ -45,7 +45,7 @@ Bookmarks List (aka Kangaroo List)
   }  
 ```
 
-Kangaroo Page 
+**Kangaroo Page** 
 ```javascript
   {
       username: "NYUstudent",//Who List belongs too
@@ -54,10 +54,10 @@ Kangaroo Page
       shared: true OR false, // user can indicate if they want to share the Kangaroo page on a forum with matching topic = list_name
       page_name: "classWebsite", //page name, given by user
       url: "https://cs.nyu.edu/courses/spring21/CSCI-UA.0480-034/_site/" // URL to page user would like to bookmark 
-      notes: {content:"This is the course website for AIT", date: new Date('2021-04-01')} // List of notes that can be organized by date
+      notes: [{content:"This is the course website for AIT", date: new Date('2021-04-01')} ]// array of notes that can be organized by date
   }  
 ```
-notes (only accessible by main user; notes will not be accessible in forum (for now))
+**notes** (only accessible by main user; notes will not be accessible in forum (for now))
 ```javascript
   {
       content:"This is content", //Note content
