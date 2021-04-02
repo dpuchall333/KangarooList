@@ -11,10 +11,10 @@ Final Project: Milestone #1
  can make these links easy to loose track of. Kangaroo provides a solution! 
 
  Kangaroo provides: 
- ⋅⋅* A secure platform (username/password) 
- ..* A place to organize and sort "bookmarks" by topic, priority, or date
- ..* For each bookmark, a space to write notes, reminders, or share the bookmark on a Forum for other   students 
- ..* Forum sorted by topic and university (if indicated by user)
+ 1. A secure platform (username/password) 
+ 2. A place to organize and sort "bookmarks" by topic, priority, or date
+ 3. For each bookmark, a space to write notes, reminders, or share the bookmark on a Forum for other   students 
+ 4. Forum sorted by topic and university (if indicated by user)
 
 
 ## Data Model 
@@ -28,7 +28,7 @@ Final Project: Milestone #1
 ## User Stories or Use Cases
 
 ## Research Topics
-1. Slack App Integration (7pts)
+1. Slack App Integration with Bolt (7pts)
 2. Bootstrap (3pts)
 [Link to Initial Main Project File](../blob/master/LICENSE)
 
