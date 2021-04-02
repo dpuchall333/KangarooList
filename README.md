@@ -29,7 +29,7 @@ User Example
       username: "NYUstudent",
       password: hash, //Password hashed and salt added
       university: "NYU",
-      kangaroo_lists: ['cs','chem','bio']// Queue based Array Data Structure
+      kangaroo_lists: ['cs','chem','bio']// Queue based Array Data Structure based on topic
       likes: [ 'nyc' ] //array of liked topics (for forum component)
   }  
 ```
@@ -50,10 +50,18 @@ Kangaroo Page
   {
       username: "NYUstudent",//Who List belongs too
       list_name: "cs", // Name of list page is under
+      university: "NYU", // for use in forums 
+      shared: true OR false, // user can indicate if they want to share the Kangaroo page on a forum with matching topic = list_name
       page_name: "classWebsite", //page name, given by user
       url: "https://cs.nyu.edu/courses/spring21/CSCI-UA.0480-034/_site/" // URL to page user would like to bookmark 
-      notes: {content:"This is the course website for AIT", date:"4/1/21"} // List of notes that can be organized by date
-
+      notes: {content:"This is the course website for AIT", date: new Date('2021-04-01')} // List of notes that can be organized by date
+  }  
+```
+notes (only accessible by main user; notes will not be accessible in forum (for now))
+```javascript
+  {
+      content:"This is content", //Note content
+      data: new Date('2021-04-01')) //Use JavaScript date object to keep track of when notes are written, AND allows notes to be organized by date added (user specified)
   }  
 ```
 
@@ -70,6 +78,7 @@ Kangaroo Page
 1. Slack App Integration with Bolt for JavaScript(7pts)
 
 2. Bootstrap (3pts)
+3. Date Objects (1pt)
 [Link to Initial Main Project File](../blob/master/LICENSE)
 
 ## Annotations/References Used
