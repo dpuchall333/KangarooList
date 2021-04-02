@@ -76,9 +76,8 @@ The application will store Users (username, password, university), Bookmarks Lis
 
 ## Research Topics
 1. Slack App Integration with Bolt for JavaScript(7pts)
-
 2. Bootstrap (3pts)
-3. Date Objects (1pt)
+3. Authenticaion Plugin Option (3pts)
 [Link to Initial Main Project File](../blob/master/LICENSE)
 
 ## Annotations/References Used
