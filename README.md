@@ -24,7 +24,7 @@ The application will store Users (username, password, university), Bookmarks Lis
 
 
 User Example
-'''javascript
+```javascript
   {
       username: "NYUstudent",
       password: hash, //Password hashed and salt added
@@ -32,7 +32,7 @@ User Example
       kangaroo_lists: // Queue based Array Data Structure
       likes: [ 'nyc' ] //array of liked topics (for forum component)
   }  
- '''
+```
 Bookmarks List
 '''javascript
 
