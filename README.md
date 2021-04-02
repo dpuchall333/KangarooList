@@ -95,10 +95,10 @@ other registered users can access the page/List
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
-1. Slack App Integration with Bolt for JavaScript(7pts)
+1. Slack App Integration with Bolt for JavaScript(7pts): A Slack app is a web applications that allows for integration with the Slack messaging app. 
 2. Bootstrap (3pts)
 3. Authenticaion Plugin Option (3pts)
-
+    Authentication Plugin opton integration would allow the user to sign into or create a more secure account with Mongoose Passport library.
 
 [Link to Initial Main Project File](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/app_example.js)
 
@@ -107,4 +107,4 @@ other registered users can access the page/List
 
 2. [Bolt for JavaScript](https://slack.dev/bolt-js/reference) 
 
-3. [Bootstrap](https://getbootstrap.com/)
+3. [Bootstrap](https://getbootstrap.com/) 
