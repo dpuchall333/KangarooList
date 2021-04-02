@@ -66,7 +66,7 @@ The application will store Users (username, password, university), Bookmarks Lis
   }  
 ```
 
-[Link to Commented First Draft Schema](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/final-project-schema-milestone1.js)
+### [Link to Commented First Draft Schema](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/final-project-schema-milestone1.js)
 
 
 ## Wireframes
@@ -74,6 +74,23 @@ The application will store Users (username, password, university), Bookmarks Lis
 ## Site Map
 
 ## User Stories or Use Cases
+User without an Account: 
+1. Create an Account with Authentication Plugin or 
+    username and password
+2. Non-registered users cannot create a Kangaroo List, page, or view forum posts
+
+User with an Account:
+1. Login in with plugin or username/password
+2. Create a profile with university, topics of interests 
+3. Create a Kangaroo List 
+4. Add any number of pages (urls) to a Kangaroo List
+5. Each page consists of a url, title, and notes
+6. User can add optional notes to each page.
+7. User can "post" page or List to a forum where
+other registered users can access the page/List 
+8. Only the author of the notes can view the notes, other uses cannot view notes provided on a page or List 
+9. User can order notes by date added
+10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
 1. Slack App Integration with Bolt for JavaScript(7pts)
