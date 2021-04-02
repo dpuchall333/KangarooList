@@ -22,7 +22,25 @@ The application will store Users (username, password, university), Bookmarks Lis
 1. User's will be able to have multiple Bookmark lists based on topic and priority (reference documents)
 2. Each Bookmark list can have multiple bookmarks (reference pages), there will potentially be a limit to number of bookmarks, but this is to be determined for later on in the project (embedded documents)
 
+
+User Example
+'''javascript
+  {
+      username: "NYUstudent",
+      password: hash, //Password hashed and salt added
+      university: "NYU",
+      kangaroo_lists: // Queue based Array Data Structure
+      likes: [ 'nyc' ] //array of liked topics (for forum component)
+  }  
+ '''
+Bookmarks List
+'''javascript
+
+ '''
+
+
 [Link to Commented First Draft Schema](../blob/master/LICENSE)
+
 
 ## Wireframes
 
