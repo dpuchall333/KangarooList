@@ -29,17 +29,35 @@ User Example
       username: "NYUstudent",
       password: hash, //Password hashed and salt added
       university: "NYU",
-      kangaroo_lists: // Queue based Array Data Structure
+      kangaroo_lists: ['cs','chem','bio']// Queue based Array Data Structure
       likes: [ 'nyc' ] //array of liked topics (for forum component)
   }  
 ```
-Bookmarks List
-'''javascript
+Bookmarks List (aka Kangaroo List)
+```javascript
+  {
+      username: "NYUstudent",//Who List belongs too
+      university: "NYU",
+      list_name: "cs", // Name of list (based on topic or preference (ex. list_name: '1'))
+      pages: ["classWebsite","github"], //pages, user wants to bookmark under topic (NOT URL, rather references to pages)
+      header: "This list is for CS" //notes or comments user wants to give to specific list; can be null
 
- '''
+  }  
+```
 
+Kangaroo Page 
+```javascript
+  {
+      username: "NYUstudent",//Who List belongs too
+      list_name: "cs", // Name of list page is under
+      page_name: "classWebsite", //page name, given by user
+      url: "https://cs.nyu.edu/courses/spring21/CSCI-UA.0480-034/_site/" // URL to page user would like to bookmark 
+      notes: {content:"This is the course website for AIT", date:"4/1/21"} // List of notes that can be organized by date
 
-[Link to Commented First Draft Schema](../blob/master/LICENSE)
+  }  
+```
+
+[Link to Commented First Draft Schema]()
 
 
 ## Wireframes
