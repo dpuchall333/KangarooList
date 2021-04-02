@@ -96,7 +96,9 @@ other registered users can access the page/List
 1. Slack App Integration with Bolt for JavaScript(7pts)
 2. Bootstrap (3pts)
 3. Authenticaion Plugin Option (3pts)
-[Link to Initial Main Project File](../blob/master/LICENSE)
+
+
+[Link to Initial Main Project File](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/app_example.js)
 
 ## Annotations/References Used
 1. [Slack App Getting Started](https://slack.dev/bolt-js/tutorial/getting-started)
