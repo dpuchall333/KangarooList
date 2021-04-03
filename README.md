@@ -81,7 +81,7 @@ Home Page
 <img width="633" alt="Screen Shot 2021-04-03 at 1 28 06 AM" src="https://user-images.githubusercontent.com/50317141/113469494-e7dd4d00-941b-11eb-9e12-b12040652bea.png">
 
 Profile
-<img width="622" alt="Screen Shot 2021-04-03 at 1 35 14 AM" src="https://user-images.githubusercontent.com/50317141/113469615-e19ba080-941c-11eb-933e-e31764a4e7f3.png">
+<img width="635" alt="Screen Shot 2021-04-03 at 1 38 28 AM" src="https://user-images.githubusercontent.com/50317141/113469651-566eda80-941d-11eb-98a9-319dda09cd66.png">
 
 Forum
 
