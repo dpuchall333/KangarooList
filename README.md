@@ -73,6 +73,11 @@ The application will store Users (username, password, university), Bookmarks Lis
 Login Page
 <img width="607" alt="Screen Shot 2021-04-02 at 9 20 05 AM" src="https://user-images.githubusercontent.com/50317141/113419082-b8cfc880-9394-11eb-8556-cc0cf5c8e1b8.png">
 
+Create an Account
+<img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469264-443f6d00-941a-11eb-83a9-85ca9357b3fc.png">
+
+Home Page
+
 ## Site Map
 ![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
 
