@@ -90,6 +90,9 @@ Forum
 Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))
 <img width="671" alt="Screen Shot 2021-04-03 at 10 55 41 AM" src="https://user-images.githubusercontent.com/50317141/113482127-30702700-946b-11eb-9584-b1862c232ae0.png">
 
+My Pages (Similar to My Lists with a few varying options) 
+<img width="667" alt="Screen Shot 2021-04-03 at 11 17 27 AM" src="https://user-images.githubusercontent.com/50317141/113482804-4a5f3900-946e-11eb-81a6-4d8d0178fbe9.png">
+
 
 ## Site Map
 ![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
