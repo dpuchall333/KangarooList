@@ -71,15 +71,19 @@ The application will store Users (username, password, university), Bookmarks Lis
 
 ## Wireframes
 Login Page
+
 <img width="607" alt="Screen Shot 2021-04-02 at 9 20 05 AM" src="https://user-images.githubusercontent.com/50317141/113419082-b8cfc880-9394-11eb-8556-cc0cf5c8e1b8.png">
 
 Create an Account
+
 <img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469264-443f6d00-941a-11eb-83a9-85ca9357b3fc.png">
 
 Home Page
+
 <img width="633" alt="Screen Shot 2021-04-03 at 1 28 06 AM" src="https://user-images.githubusercontent.com/50317141/113469494-e7dd4d00-941b-11eb-9e12-b12040652bea.png">
 
 Profile
+
 <img width="635" alt="Screen Shot 2021-04-03 at 1 38 28 AM" src="https://user-images.githubusercontent.com/50317141/113469651-566eda80-941d-11eb-98a9-319dda09cd66.png">
 
 Forum
@@ -88,9 +92,11 @@ Forum
 
 Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))
 - Not all options are included in this example
+- 
 <img width="671" alt="Screen Shot 2021-04-03 at 10 55 41 AM" src="https://user-images.githubusercontent.com/50317141/113482127-30702700-946b-11eb-9584-b1862c232ae0.png">
 
 My Pages (Similar to individual List page with a few varying options) 
+
 <img width="667" alt="Screen Shot 2021-04-03 at 11 17 27 AM" src="https://user-images.githubusercontent.com/50317141/113482804-4a5f3900-946e-11eb-81a6-4d8d0178fbe9.png">
 
 
