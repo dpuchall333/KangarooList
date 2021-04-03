@@ -1,3 +1,4 @@
+<img width="611" alt="Screen Shot 2021-04-03 at 1 26 00 AM" src="https://user-images.githubusercontent.com/50317141/113469456-93d26880-941b-11eb-83ef-b231c5ece803.png">
 Daniela Puchall
 Applied Internet Technologies
 Spring 2021
@@ -77,6 +78,9 @@ Create an Account
 <img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469264-443f6d00-941a-11eb-83a9-85ca9357b3fc.png">
 
 Home Page
+<img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469466-a2208480-941b-11eb-916c-91fc6aa23d62.png">
+
+Profile
 
 ## Site Map
 ![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
