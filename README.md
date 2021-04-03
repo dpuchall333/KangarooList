@@ -74,7 +74,8 @@ Login Page
 <img width="607" alt="Screen Shot 2021-04-02 at 9 20 05 AM" src="https://user-images.githubusercontent.com/50317141/113419082-b8cfc880-9394-11eb-8556-cc0cf5c8e1b8.png">
 
 ## Site Map
-[site_map.pdf](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/files/6251964/site_map.pdf)
+![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
+
 
 ## User Stories or Use Cases
 User without an Account: 
