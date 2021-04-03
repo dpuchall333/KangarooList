@@ -87,7 +87,7 @@ Forum
 
 <img width="620" alt="Screen Shot 2021-04-03 at 10 22 38 AM" src="https://user-images.githubusercontent.com/50317141/113481270-8f7f6d00-9466-11eb-910a-051c255ded3b.png">
 
-Create (Similar structure for List and Page creation page, a few varying parameters) 
+Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))
 
 ## Site Map
 ![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
