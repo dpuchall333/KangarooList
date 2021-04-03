@@ -1,4 +1,4 @@
-<img width="611" alt="Screen Shot 2021-04-03 at 1 26 00 AM" src="https://user-images.githubusercontent.com/50317141/113469456-93d26880-941b-11eb-83ef-b231c5ece803.png">
+
 Daniela Puchall
 Applied Internet Technologies
 Spring 2021
