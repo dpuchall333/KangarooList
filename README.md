@@ -17,7 +17,6 @@ Final Project: Milestone #1
  3. For each bookmark, a space to write notes, reminders, or share the bookmark on a Forum for other   students 
  4. Forum sorted by topic and university (if indicated by user)
 
-
 ## Data Model 
 The application will store Users (username, password, university), Bookmarks List, and User Notes
 1. User's will be able to have multiple Bookmark lists based on topic and priority (reference documents)
