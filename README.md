@@ -92,7 +92,7 @@ Forum
 
 Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))
 - Not all options are included in this example
-- 
+
 <img width="671" alt="Screen Shot 2021-04-03 at 10 55 41 AM" src="https://user-images.githubusercontent.com/50317141/113482127-30702700-946b-11eb-9584-b1862c232ae0.png">
 
 My Pages (Similar to individual List page with a few varying options) 
@@ -119,7 +119,7 @@ User with an Account:
 6. User can add optional notes to each page.
 7. User can "post" page or List to a forum where
 other registered users can access the page/List 
-8. Only the author of the notes can view the notes, other uses cannot view notes provided on a page or List 
+8. Only the author of the notes can view the notes, other user cannot view notes provided on a page or List 
 9. User can order notes by date added
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
