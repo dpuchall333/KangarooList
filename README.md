@@ -78,7 +78,7 @@ Create an Account
 <img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469264-443f6d00-941a-11eb-83a9-85ca9357b3fc.png">
 
 Home Page
-<img width="598" alt="Screen Shot 2021-04-03 at 1 27 37 AM" src="https://user-images.githubusercontent.com/50317141/113469480-c714f780-941b-11eb-9057-7d5ebb64eed2.png">
+<img width="633" alt="Screen Shot 2021-04-03 at 1 28 06 AM" src="https://user-images.githubusercontent.com/50317141/113469494-e7dd4d00-941b-11eb-9e12-b12040652bea.png">
 
 Profile
 
