@@ -7,9 +7,9 @@ Final Project: Milestone #1
 
 # Kangaroo
 ## Overview
- As a student or researcher, there are often endless websites, papers ,links to return to. 
+ As a student or researcher, there are often endless websites, papers, links to return to. 
  Using only the Bookmarks bar as a resource to hold all this information can be confusing and
- can make these links easy to loose track of. Kangaroo provides a solution! 
+ can make these links easy to loose track of. Kangaroo provides a solution! Put the resource in a pouch (aka List)!
 
  Kangaroo provides: 
  1. A secure platform (username/password) 
