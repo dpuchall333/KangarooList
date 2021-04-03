@@ -88,9 +88,10 @@ Forum
 <img width="620" alt="Screen Shot 2021-04-03 at 10 22 38 AM" src="https://user-images.githubusercontent.com/50317141/113481270-8f7f6d00-9466-11eb-910a-051c255ded3b.png">
 
 Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))
+- Not all options are included in this example
 <img width="671" alt="Screen Shot 2021-04-03 at 10 55 41 AM" src="https://user-images.githubusercontent.com/50317141/113482127-30702700-946b-11eb-9584-b1862c232ae0.png">
 
-My Pages (Similar to My Lists with a few varying options) 
+My Pages (Similar to individual List page with a few varying options) 
 <img width="667" alt="Screen Shot 2021-04-03 at 11 17 27 AM" src="https://user-images.githubusercontent.com/50317141/113482804-4a5f3900-946e-11eb-81a6-4d8d0178fbe9.png">
 
 
@@ -118,8 +119,8 @@ other registered users can access the page/List
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
-1. Slack App Integration with Bolt for JavaScript(7pts): A Slack app is a web applications that allows for integration with the Slack messaging app. 
-2. Bootstrap (3pts)
+1. Slack App Integration with Bolt for JavaScript(7pts): A Slack app is a web applications that allows for integration with the Slack messaging app. In this project, I will use the framework developemed for the web app and create a modified version of Kangaroo as a  Slack App. This app will allow users to enhance the bookmarking features currently available in Slack. It will provide a space for users to save resources shared in Slack channels in an organized fasion. 
+2. Bootstrap (3pts): I will be using bootstrap to as a front end framework to build a dynamic and responsive web application. Bootstrap is a JavaScript library. Aspects of JQuery will also be used.
 3. Authenticaion Plugin Option (3pts)
     Authentication Plugin opton integration would allow the user to sign into or create a more secure account with Mongoose Passport library.
 
