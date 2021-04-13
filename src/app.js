@@ -7,4 +7,4 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
