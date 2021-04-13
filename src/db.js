@@ -16,5 +16,8 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  // if we're not in PRODUCTION mode, then use
  dbconf = 'mongodb://localhost/dep333';
 }
+
+const mongoose = require('mongoose');
+const URLSlugs = require('mongoose-url-slugs');
+const Schema = mongoose.Schema; 
 mongoose.connect(dbconf);
-//mongoose.connecct ==> mongodb://dep333:YXUUbgxy@class-mongodb.cims.nyu.edu/dep333
