@@ -1,0 +1,23 @@
+{
+  "name": "dpuchall333-final-project",
+  "version": "1.0.0",
+  "description": "Daniela Puchall Applied Internet Technologies Spring 2021",
+  "main": "app_example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
