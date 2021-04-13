@@ -1,3 +1,4 @@
+
 Daniela Puchall
 Applied Internet Technologies
 Spring 2021
@@ -6,16 +7,15 @@ Final Project: Milestone #1
 
 # Kangaroo
 ## Overview
- As a student or researcher, there are often endless websites, papers ,links to return to. 
+ As a student or researcher, there are often endless websites, papers, links to return to. 
  Using only the Bookmarks bar as a resource to hold all this information can be confusing and
- can make these links easy to loose track of. Kangaroo provides a solution! 
+ can make these links easy to loose track of. Kangaroo provides a solution! Put the resource in a pouch (aka List)!
 
  Kangaroo provides: 
  1. A secure platform (username/password) 
  2. A place to organize and sort "bookmarks" by topic, priority, or date
  3. For each bookmark, a space to write notes, reminders, or share the bookmark on a Forum for other   students 
  4. Forum sorted by topic and university (if indicated by user)
-
 
 ## Data Model 
 The application will store Users (username, password, university), Bookmarks List, and User Notes
@@ -70,8 +70,39 @@ The application will store Users (username, password, university), Bookmarks Lis
 
 
 ## Wireframes
+Login Page /login
+
+<img width="607" alt="Screen Shot 2021-04-02 at 9 20 05 AM" src="https://user-images.githubusercontent.com/50317141/113419082-b8cfc880-9394-11eb-8556-cc0cf5c8e1b8.png">
+
+Create an Account /createAccount
+
+<img width="614" alt="Screen Shot 2021-04-03 at 1 16 22 AM" src="https://user-images.githubusercontent.com/50317141/113469264-443f6d00-941a-11eb-83a9-85ca9357b3fc.png">
+
+Home Page  /home
+
+<img width="633" alt="Screen Shot 2021-04-03 at 1 28 06 AM" src="https://user-images.githubusercontent.com/50317141/113469494-e7dd4d00-941b-11eb-9e12-b12040652bea.png">
+
+Profile /profile
+
+<img width="635" alt="Screen Shot 2021-04-03 at 1 38 28 AM" src="https://user-images.githubusercontent.com/50317141/113469651-566eda80-941d-11eb-98a9-319dda09cd66.png">
+
+Forum /forum
+
+<img width="620" alt="Screen Shot 2021-04-03 at 10 22 38 AM" src="https://user-images.githubusercontent.com/50317141/113481270-8f7f6d00-9466-11eb-910a-051c255ded3b.png">
+
+Create Page (Similar Structure for Create List Page, with a few varying parameters (outlined in Schema))  /create/page
+- Not all options are included in this example
+
+<img width="671" alt="Screen Shot 2021-04-03 at 10 55 41 AM" src="https://user-images.githubusercontent.com/50317141/113482127-30702700-946b-11eb-9584-b1862c232ae0.png">
+
+My Pages (Similar to individual List page with a few varying options)  /mypages
+
+<img width="667" alt="Screen Shot 2021-04-03 at 11 17 27 AM" src="https://user-images.githubusercontent.com/50317141/113482804-4a5f3900-946e-11eb-81a6-4d8d0178fbe9.png">
+
 
 ## Site Map
+![site_map](https://user-images.githubusercontent.com/50317141/113468868-f6753580-9416-11eb-9839-37de54f4e652.png)
+
 
 ## User Stories or Use Cases
 User without an Account: 
@@ -88,15 +119,17 @@ User with an Account:
 6. User can add optional notes to each page.
 7. User can "post" page or List to a forum where
 other registered users can access the page/List 
-8. Only the author of the notes can view the notes, other uses cannot view notes provided on a page or List 
+8. Only the author of the notes can view the notes, other user cannot view notes provided on a page or List 
 9. User can order notes by date added
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
-1. Slack App Integration with Bolt for JavaScript(7pts)
-2. Bootstrap (3pts)
-3. Authenticaion Plugin Option (3pts)
+1. Slack App Integration with Bolt for JavaScript(7pts): A Slack app is a web applications that allows for integration with the Slack messaging app. In this project, I will use the framework developemed for the web app and create a modified version of Kangaroo as a  Slack App. This app will allow users to enhance the bookmarking features currently available in Slack. It will provide a space for users to save resources shared in Slack channels in an organized fasion. 
 
+2. Bootstrap (3pts): I will be using bootstrap to as a front end framework to build a dynamic and responsive web application. Bootstrap is a JavaScript library. Aspects of JQuery JavaScript library will also be used to enhance the web application. 
+
+3. Authenticaion Plugin Option (3pts)
+    Authentication Plugin opton integration would allow the user to sign into or create a more secure account with Mongoose Passport library.
 
 [Link to Initial Main Project File](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/app_example.js)
 
@@ -105,4 +138,8 @@ other registered users can access the page/List
 
 2. [Bolt for JavaScript](https://slack.dev/bolt-js/reference) 
 
-3. [Bootstrap](https://getbootstrap.com/)
+3. [Bootstrap](https://getbootstrap.com/) 
+
+4. [JQuery](https://jquery.com/)
+5. [Passport-Local-Mongoose](https://www.npmjs.com/package/passport-local-mongoose)
+
