@@ -20,6 +20,7 @@
   "dependencies": {
     "docker": "^0.2.14",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mongoose": "^5.12.3",
     "mongoose-url-slugs": "^1.0.2",
     "node": "^15.12.0"

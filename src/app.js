@@ -6,6 +6,7 @@ const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
 require('./db.js');
+const auth = require('./auth.js'); 
 
 const app = express();
 
@@ -15,6 +16,8 @@ const Page = mongoose.model('Page');
 const Note = mongoose.model('Note');
 
 // view engine setup
+app.set('view engine', 'hbs');
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
@@ -25,7 +28,8 @@ app.use(session({
 
 //User Object middleware
 app.use((req,res,next)=>{
-    req.locals.user = req.session.user;
+    res.locals.user = req.session.user;
+    next();
 });
 
 app.get('/',function(req,res){
@@ -106,7 +110,7 @@ app.get('/page/:slug',(req,res)=>{
 
 app.get('/profile/:username',(req,res)=>{
     User.findOne({username: req.params.username},function(err,user){
-        KangarooList.find({'id',user._id},function(err,lists){
+        KangarooList.find({'id':user._id},function(err,lists){
             if(err){
                 console.log(err);
             }
@@ -122,9 +126,21 @@ app.get('/register',(req,res)=>{
     res.render("register");
 });
 
-app.post('/register',(req,res)=>{
-    function errCB(errObj){
-        res.render("register",{message:erroObj.message});
+app.post('/register', (req, res) => {
+
+    function errorCB(errObj){
+        res.render("register",{message:errObj.message});
+          console.log("Could not register");
     }
-})
+
+    function successCB(user){
+        auth.startAuthenticatedSession(req, user, function(){    
+            console.log("registered");
+            res.redirect('/');
+        });
+    }
+    auth.register(req.body.username, req.body.email, req.body.password, errorCB, successCB);
+    //res.redirect("register");
+});
+
 app.listen(process.env.PORT || 3000);

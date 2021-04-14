@@ -29,7 +29,9 @@ const User = new Schema ({
     //REQUIRED AT LOGIN: 
     //username: Option provided to either use authentication plug-in OR provide username
     //password: hash provided either by authentication plug in OR user input ( and hased)
-    
+    username: String,
+    email: String,
+    password: {type:String, unique:true, require:true},
     //Other information for "profile", all optional
     univeristy: {type:String, required: false},
     kangaroo_lists: [{type: Schema.Types.ObjectId, ref: 'KangarooList', required:'false'}],
@@ -39,23 +41,25 @@ const User = new Schema ({
 
 //Kangaroo List
 const KangarooList = new Schema({
-    //username: provided by User
+    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
     university: {type:String, required: false},
-    list_name: {type:String},
+    list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
-    header: {type:String},
+    header: String,
+    id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 
 });
 
 //Page (Bookmark) in a Kangaroo List
 const Page = new Schema({
-    //username:provided by User
+    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
     university: {type:String, required: false},
-    list_name: {type:String},
+    list_name: String,
     shared: {type: Boolean, default: false, required: true},
-    page_name:{ type: String}, 
-    url: {type:String},
-    notes: [{type: Schema.Types.ObjectId, ref='Note'}],
+    page_name: String, 
+    url: String,
+    notes: [{type: Schema.Types.ObjectId, ref:'Note'}],
+    id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 });
 
 //Notes than can be added to List 
