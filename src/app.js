@@ -81,7 +81,7 @@ app.post('/create/page',function(req,res){
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
             else{
-                res.render('create-age', {'message': 'Successfully Created Page'});
+                res.render('create-page', {'message': 'Successfully Created Page'});
                 //res.redirect('/index');
             }
         });
