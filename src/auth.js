@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const saltRounds = 10; 
 
-function register(username, email, password, errorCallback, successCallback) {
+function createAccount(username, email, password, errorCallback, successCallback) {
   if (username.length < 8 || password.length < 8 ){ 
     //Username and Password input are less than 8 characters
     const errObj = {message:"USERNAME PASSWORD TOO SHORT"};
@@ -102,6 +102,6 @@ function startAuthenticatedSession(req, user, cb) {
 
 module.exports = {
   startAuthenticatedSession: startAuthenticatedSession,
-  register: register,
+  createAccount:createAccount,
   login: login
 };
