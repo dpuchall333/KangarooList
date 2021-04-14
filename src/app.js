@@ -60,7 +60,7 @@ app.get('/create/page',function(req,res){
 app.get('/create',function(req,res){
     res.render('create');
 })
-app.post('.../page',function(req,res){
+app.post('/create/page',function(req,res){
    // if(req.session.username){
        /* new Note({
             content: req.body.content,
@@ -81,6 +81,7 @@ app.post('.../page',function(req,res){
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
             else{
+                res.render('create-age', {'message': 'Successfully Created Page'});
                 res.redirect('/index');
             }
         });
