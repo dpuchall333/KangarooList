@@ -58,7 +58,7 @@ app.get('/create/page',function(req,res){
 });
 
 app.post('/create/page',function(req,res){
-    if(req.session.user.username){
+    if(req.session.username){
        /* new Note({
             content: req.body.content,
             data: req.body.date,
