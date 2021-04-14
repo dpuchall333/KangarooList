@@ -33,6 +33,7 @@ app.use((req,res,next)=>{
 });
 
 app.get('/',function(req,res){
+   //res.render("Made it");
     //if user is signed in --> homepage is changed
   if(req.session.user){
       KangarooList.find({},function(err, kangarooLists){
