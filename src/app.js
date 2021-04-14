@@ -67,7 +67,7 @@ app.post('/create/page',function(req,res){
             data: new Date(),
         });
         new Page({
-            username:  req.body.username, //req.session.user.username, 
+           // username:  req.body.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
             //shared: req.body.status,
@@ -76,13 +76,13 @@ app.post('/create/page',function(req,res){
             notes: note,
             id : req.session.user._id
 
-        }),save(function(err){
+        }).save(function(err){
             if (err){
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
             else{
                 res.render('create-age', {'message': 'Successfully Created Page'});
-                res.redirect('/index');
+                //res.redirect('/index');
             }
         });
   //  }
