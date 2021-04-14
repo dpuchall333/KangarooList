@@ -60,7 +60,7 @@ app.get('/create/page',function(req,res){
 app.get('/create',function(req,res){
     res.render('create');
 })
-app.post('/create/page',function(req,res){
+app.post('.../page',function(req,res){
    // if(req.session.username){
        /* new Note({
             content: req.body.content,
