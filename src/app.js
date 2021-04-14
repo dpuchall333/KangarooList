@@ -49,7 +49,7 @@ app.get('/',function(req,res){
 }); 
 
 app.get('/create/page',function(req,res){
-    if(req.session.user.username){
+    if(req.session.username.username){
         res.render('create-page',{}); 
     }
     else{
@@ -109,6 +109,8 @@ app.get('/page/:slug',(req,res)=>{
     });
 });
 
+//Repeat for create List
+
 app.get('/profile/:username',(req,res)=>{
     User.findOne({username: req.params.username},function(err,user){
         KangarooList.find({'id':user._id},function(err,lists){
@@ -123,20 +125,20 @@ app.get('/profile/:username',(req,res)=>{
     });
 });
 
-app.get('/register',(req,res)=>{
-    res.render("register");
+app.get('/createAccount',(req,res)=>{
+    res.render("createAccount");
 });
 
-app.post('/register', (req, res) => {
+app.post('/createAccount', (req, res) => {
 
     function errorCB(errObj){
-        res.render("register",{message:errObj.message});
-          console.log("Could not register");
+        res.render("createAccount",{message:errObj.message});
+          console.log("Could not Create Account");
     }
 
     function successCB(user){
         auth.startAuthenticatedSession(req, user, function(){    
-            console.log("registered");
+            console.log("Account created");
             res.redirect('/');
         });
     }
@@ -157,5 +159,11 @@ app.post('/login',(req,res)=>{
         });
     });
 });
+
+app.get('/forum',(req,res)=>{
+    res.render('forum');
+}); 
+
+
 
 app.listen(process.env.PORT || 3000);
