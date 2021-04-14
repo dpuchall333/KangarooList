@@ -73,7 +73,7 @@ app.post('/create/page',function(req,res){
             //shared: req.body.status,
             page_name: req.body.pageName, 
             url: req.body.url,
-            notes: req.body.content.content,
+            notes: req.body.content.description,
             id : req.session.user._id
 
         }),save(function(err){
