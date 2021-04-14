@@ -57,6 +57,9 @@ app.get('/create/page',function(req,res){
     }
 });
 
+app.get('/create',function(req,res){
+    res.render('create');
+})
 app.post('/create/page',function(req,res){
     if(req.session.username){
        /* new Note({
@@ -66,8 +69,8 @@ app.post('/create/page',function(req,res){
         new Page({
             username:  req.body.username, //req.session.user.username, 
             list_name: req.body.listName,
-            university: req.body.uni,
-            shared: req.body.status,
+            //university: req.body.uni,
+            //shared: req.body.status,
             page_name: req.body.pageName, 
             url: req.body.url,
             notes: req.body.content.content,
@@ -78,12 +81,12 @@ app.post('/create/page',function(req,res){
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
             else{
-                res.redirect('/');
+                res.redirect('/index');
             }
         });
     }
     else{
-        res.redirect('login');
+        res.redirect('/login');
     }
 });
 
