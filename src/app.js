@@ -164,6 +164,9 @@ app.get('/forum',(req,res)=>{
     res.render('forum');
 }); 
 
+app.get('/profile',(req,res)=>{
+    res.render('profile');
+})
 
 
 app.listen(process.env.PORT || 3000);
