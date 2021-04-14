@@ -49,7 +49,7 @@ app.get('/',function(req,res){
 }); 
 
 app.get('/create/page',function(req,res){
-    if(req.session.username.username){
+    if(req.session.username){
         res.render('create-page',{}); 
     }
     else{
