@@ -142,7 +142,7 @@ app.post('/createAccount', (req, res) => {
             res.redirect('/');
         });
     }
-    auth.register(req.body.username, req.body.email, req.body.password, errorCB, successCB);
+    auth.createAccount(req.body.username, req.body.email, req.body.password, errorCB, successCB);
     //res.redirect("register");
 });
 
