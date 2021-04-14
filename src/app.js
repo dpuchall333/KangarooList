@@ -28,7 +28,7 @@ app.use(session({
 
 //User Object middleware
 app.use((req,res,next)=>{
-    res.locals.user = req.session.user;
+    res.locals.username = req.session.username;
     next();
 });
 
