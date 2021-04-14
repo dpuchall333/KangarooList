@@ -61,11 +61,11 @@ app.get('/create',function(req,res){
     res.render('create');
 })
 app.post('/create/page',function(req,res){
-   // if(req.session.username){
-       /* new Note({
-            content: req.body.content,
-            data: req.body.date,
-        })*/
+    //if(req.session.username){
+       const note =  new Note({
+            content: req.body.description,
+            data: new Date(),
+        });
         new Page({
             username:  req.body.username, //req.session.user.username, 
             list_name: req.body.listName,
@@ -73,7 +73,7 @@ app.post('/create/page',function(req,res){
             //shared: req.body.status,
             page_name: req.body.pageName, 
             url: req.body.url,
-            notes: req.body.content.description,
+            notes: note,
             id : req.session.user._id
 
         }),save(function(err){
