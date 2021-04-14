@@ -144,4 +144,18 @@ app.post('/register', (req, res) => {
     //res.redirect("register");
 });
 
+app.get('/login',(req,res)=>{
+    res.render('login');
+});
+
+app.post('/login',(req,res)=>{
+    auth.login(req.body.username, req.body.password, function errorCallback(errObj){
+        res.render('login',{message: errObj.message});
+    }, function successCallback(user){
+        auth.startAuthenticatedSession(req, user, function cb(){
+            res.redirect('/');
+        });
+    });
+});
+
 app.listen(process.env.PORT || 3000);
