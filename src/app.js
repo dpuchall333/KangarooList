@@ -49,16 +49,16 @@ app.get('/',function(req,res){
 }); 
 
 app.get('/create/page',function(req,res){
-    if(req.session.username){
+   // if(req.session.username){
         res.render('create-page',{}); 
-    }
-    else{
-        res.redirect('login');
-    }
+    //}
+   // else{
+    //    res.redirect('login');
+   // }
 });
 
 app.post('/create/page',function(req,res){
-    if(req.session.username){
+   // if(req.session.username){
        /* new Note({
             content: req.body.content,
             data: req.body.date,
@@ -81,10 +81,10 @@ app.post('/create/page',function(req,res){
                 res.redirect('/');
             }
         });
-    }
-    else{
-        res.redirect('login');
-    }
+   // }
+   // else{
+    //    res.redirect('login');
+   // }
 });
 
 
