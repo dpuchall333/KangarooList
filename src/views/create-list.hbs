@@ -1,0 +1,16 @@
+<h2>Add New List</h2>
+{{#if message}}
+<div class = 'error'>{{message}}</div>
+{{/if}}
+<form method="POST" action="">
+	<div >
+		<label for="listname">List Name:</label>
+		<input type="text" id="listName" name="listName" value="">
+	</div>
+	
+	<div>
+		<label for="header">Header:</label>
+		<input type="text" id="header" name="header" value="">
+	</div>
+	<input type="submit" value="Create List"> 
+</form>

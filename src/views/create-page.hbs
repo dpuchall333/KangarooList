@@ -3,11 +3,14 @@
 <div class = 'error'>{{message}}</div>
 {{/if}}
 <form method="POST" action="">
+	<div class="form-group">
 	<div>
+	
 		<label for="name">Name:</label>
-		<input type="text" id="pageName" name="pageName" value="">
+		<input  type="text" id="pageName" name="pageName" value="">
+		
 	</div>
-	<div>
+	<div > 
 		<label for="listname">List:</label>
 		<input type="text" id="listName" name="listName" value="">
 	</div>
@@ -15,9 +18,10 @@
 		<label for="title">URL:</label>
 		<input type="url" id="url" name="url" value="">
 	</div>
-	<div>
+	<div  >
 		<label for="description">Description:</label>
 		<textarea name="description" id="description"></textarea>
 	</div>
+</div>
 	<input type="submit" value="Create Page"> 
 </form>

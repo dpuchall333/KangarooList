@@ -53,7 +53,16 @@ app.get('/create/page',function(req,res){
         res.render('create-page',{}); 
     }
     else{
-        res.redirect('login');
+        res.redirect('/login');
+    }
+});
+
+app.get('/create/list',function(req,res){
+    if(req.session.user){
+        res.render('create-list',{}); 
+    }
+    else{
+        res.redirect('/login');
     }
 });
 
@@ -90,6 +99,40 @@ app.post('/create/page',function(req,res){
   //      res.redirect('/login');
   //  }
 });
+
+
+app.post('/create/list',function(req,res){
+    //if(req.session.username){
+       /*const note =  new Note({
+            content: req.body.description,
+            data: new Date(),
+        });*/
+        new KangarooList({
+           // username:  req.body.username, //req.session.user.username, 
+            list_name: req.body.listName,
+            //university: req.body.uni,
+            //shared: req.body.status,
+            //page_name: req.body.pageName, 
+            //url: req.body.url,
+           // notes: note,
+           header: req.body.header,
+           // id : req.session.user._id
+
+        }).save(function(err){
+            if (err){
+                res.render('create-list',{'message': 'Error saving page, try again'});
+            }
+            else{
+                res.render('create-list', {'message': 'Successfully Created Page'});
+                //res.redirect('/index');
+            }
+        });
+  //  }
+   // else{
+  //      res.redirect('/login');
+  //  }
+});
+
 
 /*
 app.get('/page/:slug',(req,res)=>{
@@ -171,6 +214,5 @@ app.get('/forum',(req,res)=>{
 app.get('/profile',(req,res)=>{
     res.render('profile');
 })
-
 
 app.listen(process.env.PORT || 3000);
