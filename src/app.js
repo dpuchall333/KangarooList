@@ -40,8 +40,9 @@ app.get('/',function(req,res){
           if(err){
               console.log(err);
           }
-          res.render('home',{list: kangarooLists})
+          res.render('home',{ list: kangarooLists})
       });
+      //username: req.sesssion.user.username,
     }
     else{
           res.render('index');
@@ -231,4 +232,4 @@ app.get('/profile',(req,res)=>{
     res.render('profile');
 })
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3001);

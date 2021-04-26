@@ -11,4 +11,4 @@
 
 
 
-        col-sm-3 text-center
+      col-sm-2 text-center
