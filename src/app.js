@@ -232,4 +232,4 @@ app.get('/profile',(req,res)=>{
     res.render('profile');
 })
 
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3000);
