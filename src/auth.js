@@ -5,9 +5,14 @@ const User = mongoose.model('User');
 const saltRounds = 10; 
 
 function createAccount(username, email, password, errorCallback, successCallback) {
-  if (username.length < 8 || password.length < 8 ){ 
+  if (username.length < 8  ){ 
     //Username and Password input are less than 8 characters
-    const errObj = {message:"USERNAME PASSWORD TOO SHORT"};
+    const errObj = {message:"Username is too short. Must be 8 characters long."};
+    console.log(errObj.message); 
+    errorCallback(errObj);
+  }
+  else if (password.length < 8){
+    const errObj = {message:"Password is too short. Must be 8 characters long."};
     console.log(errObj.message); 
     errorCallback(errObj);
   }
@@ -16,7 +21,7 @@ function createAccount(username, email, password, errorCallback, successCallback
     User.findOne({username: username},function(err, result) {
       if(result){
         //Username is found in data base --> Already Exists
-       const errObj = {message: "USERNAME ALREADY EXISTS"} ; 
+       const errObj = {message: "Username already exists"} ; 
         console.log(errObj.message);
         errorCallback(errObj);
       }
@@ -25,9 +30,7 @@ function createAccount(username, email, password, errorCallback, successCallback
         //Create new User
       
           bcrypt.hash(password,saltRounds,function(err,hash){
-           //if(err){
-           //  console.log(err);
-          // }
+           
             new User({
               username: username,
               email: email,

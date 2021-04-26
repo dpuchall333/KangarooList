@@ -25,7 +25,7 @@ const Schema = mongoose.Schema;
 
 //User
 
-const User = new Schema ({
+const UserSchema = new Schema ({
     //REQUIRED AT LOGIN: 
     //username: Option provided to either use authentication plug-in OR provide username
     //password: hash provided either by authentication plug in OR user input ( and hased)
@@ -40,9 +40,9 @@ const User = new Schema ({
 
 
 //Kangaroo List
-const KangarooList = new Schema({
-    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
-    university: {type:String, required: false},
+const KangarooListSchema = new Schema({
+    
+    //university: {type:String, required: false},
     list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
     header: String,
@@ -51,9 +51,9 @@ const KangarooList = new Schema({
 });
 
 //Page (Bookmark) in a Kangaroo List
-const Page = new Schema({
-    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
-    university: {type:String, required: false},
+const PageSchema = new Schema({
+    //username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
+   // university: {type:String, required: false},
     list_name: String,
     shared: {type: Boolean, default: false, required: true},
     page_name: String, 
@@ -63,18 +63,19 @@ const Page = new Schema({
 });
 
 //Notes than can be added to List 
-const Note = new Schema({
+const NoteSchema = new Schema({
     content: {type:String, required:false},
-    date:{type:Date, required: false}
+    date:{type:Date, required: false},
+    id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 })
 
 //Use URL Slugs
-KangarooList.plugin(URLSlugs('page_name'));
-
+KangarooListSchema.plugin(URLSlugs('list_name'));
+PageSchema.plugin(URLSlugs('page_name'));
 //register models
-mongoose.model('User',User);
-mongoose.model('KangarooList',KangarooList);
-mongoose.model('Page',Page);
-mongoose.model('Note',Note);
+mongoose.model('User',UserSchema);
+mongoose.model('KangarooList',KangarooListSchema);
+mongoose.model('Page',PageSchema);
+mongoose.model('Note',NoteSchema);
 
 mongoose.connect(dbconf);

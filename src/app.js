@@ -40,7 +40,7 @@ app.get('/',function(req,res){
           if(err){
               console.log(err);
           }
-          res.render('index',{lists: kangarooLists})
+          res.render('home',{list: kangarooLists})
       });
     }
     else{
@@ -49,7 +49,7 @@ app.get('/',function(req,res){
 }); 
 
 app.get('/create/page',function(req,res){
-    if(req.session.user){
+    if(req.session.user.username){
         res.render('create-page',{}); 
     }
     else{
@@ -57,29 +57,17 @@ app.get('/create/page',function(req,res){
     }
 });
 
-app.get('/create/list',function(req,res){
-    if(req.session.user){
-        res.render('create-list',{}); 
-    }
-    else{
-        res.redirect('/login');
-    }
-});
-
-app.get('/create',function(req,res){
-    res.render('create');
-})
 app.post('/create/page',function(req,res){
-    //if(req.session.username){
+    if(req.session.user.username){
        const note =  new Note({
             content: req.body.description,
             data: new Date(),
         });
         new Page({
-           // username:  req.body.username, //req.session.user.username, 
+            username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            //shared: req.body.status,
+            shared: req.body.status,
             page_name: req.body.pageName, 
             url: req.body.url,
             notes: note,
@@ -94,55 +82,20 @@ app.post('/create/page',function(req,res){
                 //res.redirect('/index');
             }
         });
-  //  }
-   // else{
-  //      res.redirect('/login');
-  //  }
+    }
+    else{
+       res.redirect('/login');
+    }
 });
 
-
-app.post('/create/list',function(req,res){
-    //if(req.session.username){
-       /*const note =  new Note({
-            content: req.body.description,
-            data: new Date(),
-        });*/
-        new KangarooList({
-           // username:  req.body.username, //req.session.user.username, 
-            list_name: req.body.listName,
-            //university: req.body.uni,
-            //shared: req.body.status,
-            //page_name: req.body.pageName, 
-            //url: req.body.url,
-           // notes: note,
-           header: req.body.header,
-           // id : req.session.user._id
-
-        }).save(function(err){
-            if (err){
-                res.render('create-list',{'message': 'Error saving page, try again'});
-            }
-            else{
-                res.render('create-list', {'message': 'Successfully Created Page'});
-                //res.redirect('/index');
-            }
-        });
-  //  }
-   // else{
-  //      res.redirect('/login');
-  //  }
-});
-
-
-/*
 app.get('/page/:slug',(req,res)=>{
-    Pages.findOne({slug: req.params.slug}, function(err,page){
+    Page.findOne({slug: req.params.slug}, function(err,page){
         User.findOne({'_id':page.id},function(err,user){
             
             res.render('/mypages',{
-                username: user.username,
+                //username: user.username,
                 list_name: page.list_name,
-                university: user.university,
+                //university: user.university,
                 shared: page.shared,
                 page_name: page.page_name,
                 url: page.url,
@@ -155,7 +108,70 @@ app.get('/page/:slug',(req,res)=>{
         })
     });
 });
-*/
+
+app.get('/create/list',function(req,res){
+    if(req.session.user){
+        res.render('create-list',{}); 
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+
+app.post('/create/list',function(req,res){
+    if(req.session.user.username){
+        new KangarooList({
+           // username:  req.body.username, //req.session.user.username, 
+            list_name: req.body.listName,
+            //university: req.body.uni,
+            //shared: req.body.status,
+            //page_name: req.body.pageName, 
+            //url: req.body.url,
+           // notes: note,
+           header: req.body.header,
+            id : req.session.user._id
+
+        }).save(function(err){
+            if (err){
+                res.render('create-list',{'message': 'Error saving list, try again'});
+            }
+            else{
+                res.render('create-list', {'message': 'Successfully Created Page'});
+                //res.redirect('/index');
+            }
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+
+app.get('/list/:slug',(req,res)=>{
+    KangarooList.findOne({slug: req.params.slug}, function(err,list){
+        User.findOne({'_id':list.id},function(err,user){
+            
+            res.render('/myLists',{
+                //username: user.username,
+                list_name: KangarooList.list_name,
+                //university: user.university,
+                //shared: page.shared,
+                //page_name: page.page_name,
+                //url: page.url,
+                //notes: page.content,
+            });
+
+            if (err){
+                console.log(err);
+            }
+        })
+    });
+});
+
+app.get('/create',function(req,res){
+    res.render('create');
+})
+
+
 //Repeat for create List
 
 app.get('/profile/:username',(req,res)=>{

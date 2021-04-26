@@ -3,9 +3,47 @@
 
 
 <h3>{{username}}</h3>
+
+
 <!--
 <ul>
     {{#each articlesList}}
         <li><a href="{{this.url}}">{{this.title}}</a> </li>
     {{/each}}
 </ul> !--> 
+
+<div class = 'profile'>
+    <form method = 'post'>
+        <div class = 'row'>
+            <div class = 'profile-pic'>
+                <!--- <img src = "source"> !-->
+                <div class='file btn btn-sm btn-warning'>
+                    Select Profile Picture 
+                    <input type = 'file' name ='profilePic'/>
+                </div>
+            </div>
+            <div class='col-md-6'>
+                <div class='profile-head'>
+                    <h3> {{username}}</h3>
+                    <h3>{{university}}</h3>
+                </div>
+                <div class='col-md-2'>
+                    <input type='submit' class='edit-profile-btn' name = 'Edit profile' value='Edit Profile'/>
+
+                </div>
+
+            </div>
+            <div class= 'row'>
+                <div class='col-md-4'>
+                    <div class='profile-kangaroolist'>
+                        <p>Kangaroo Lists</p>
+                        <!-- handlebars for lists of Kangaroo Lists !-->
+                    </div>
+                </div>
+                <div class='col-md-8'>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
