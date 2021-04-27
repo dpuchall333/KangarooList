@@ -45,13 +45,13 @@ app.get('/',function(req,res){
           
           res.render('home',{ list: kangarooLists})
          
-      });
+      });/*
       Page.find({},function(err,pages){
           if(err){
               console.log(err);
           }
           res.render('home',{pages: pages});
-      });
+      });*/
       
       //username: req.sesssion.user.username,
     }
@@ -138,14 +138,13 @@ app.get('/create/list',function(req,res){
 
 app.post('/create/list',function(req,res){
     if(req.session.user.username){
+        console.log(req.body.status);
         new KangarooList({
            // username:  req.body.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            //shared: req.body.status,
+            shared: req.body.status,
             //page_name: req.body.pageName, 
-            //url: req.body.url,
-           // notes: note,
            header: req.body.header,
             id : req.session.user._id
 
@@ -245,7 +244,18 @@ app.post('/login',(req,res)=>{
 
 
 app.post('/forum',(req,res)=>{
-    const p = new Post({
+    if(req.session.user){
+        Kangaroo.find({'shared':'public'},function(err,list){
+            if(err){
+                console.log(err);
+            }
+            res.render('forum',{ list:list});
+        });
+    }
+    else{
+    res.render('index');
+    } 
+   /* const p = new Post({
         title: req.body.title,
         list_name: req.body.list_name,
         author: req.session.user.username,
@@ -261,7 +271,7 @@ app.post('/forum',(req,res)=>{
          else{
               res.json(post);
          }
-    });
+    });*/
 });
 
 app.get('/forum/:id/comments/', (req, res)=>{ 

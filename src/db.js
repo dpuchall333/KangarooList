@@ -46,6 +46,7 @@ const KangarooListSchema = new Schema({
     list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
     header: String,
+    shared:String ,
     id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 
 });

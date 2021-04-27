@@ -17,9 +17,6 @@
       let url = 'http://localhost:3000/forum';
       getComments();
   
- 
-  
-
       $('#create-post').on('click', function (e) {
         const title = document.querySelector('#post-title').value;
       const listInfo = document.querySelector('#post-content').value;
@@ -102,8 +99,6 @@
       };
       const response = await fetch(url,options);
       const data = await response.json();
-      
-      
   
   };
   
