@@ -1,5 +1,7 @@
 
-
+p{
+  color: fuchsia
+}
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -33,4 +35,17 @@
 .align_center{ 
   display: flex;
   align-items: center;
+}
+
+
+#content {
+	width: 500px;
+	margin: auto;
+	text-align: left;
+}
+
+#jump{
+  position:absolute; 
+  left: -10px;
+  top: 150px;
 }

@@ -132,6 +132,8 @@ other registered users can access the page/List
 3. Authenticaion Plugin Option (3pts)
     Authentication Plugin opton integration would allow the user to sign into or create a more secure account with Mongoose Passport library.
 
+4. JQuery (2pts) Include JQuery Animation and additional features 
+
 [Link to Initial Main Project File](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/app_example.js)
 
 ## Annotations/References Used

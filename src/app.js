@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 require('./db.js');
 const auth = require('./auth.js'); 
 
@@ -14,10 +15,11 @@ const User = mongoose.model('User');
 const KangarooList = mongoose.model('KangarooList');
 const Page = mongoose.model('Page');
 const Note = mongoose.model('Note');
+const Post = mongoose.model('Post'); 
 
 // view engine setup
 app.set('view engine', 'hbs');
-
+app.use(bodyParser.json()); 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
@@ -224,10 +226,56 @@ app.post('/login',(req,res)=>{
     });
 });
 
-app.get('/forum',(req,res)=>{
-    res.render('forum');
-}); 
+//FORUM - AJAX Based
 
+
+app.post('/forum',(req,res)=>{
+    const p = new Post({
+        title: req.body.title,
+        list_name: req.body.list_name,
+        author: req.session.user.username,
+        university: req.session.user.university,
+        comment: req.body.comment
+
+    });
+
+    p.save((err,post)=>{
+         if (err){
+             console.log(err);
+         }
+         else{
+              res.json(post);
+         }
+    });
+});
+
+app.get('/forum/:id/comments/', (req, res)=>{ 
+    Post.findByIdAndUpdate(req.params['id'],{
+        "$push":{ 
+            comment: req.body['comment']
+        }
+    }, (err, docs)=>{
+        if(err){
+            res.json({
+                "error": "Comment was not added, try again"
+            });
+        }else{
+            res.json({
+                "message": "Update to comments succcesful",
+                "docs": docs
+            });
+        }
+    });
+});
+
+app.get('/forum',(req,res)=>{
+    Post.find({}, function (err, post){
+        res.render('forum');
+        //res.json({err,post});
+    })
+
+}); 
+//Profile Section 
 app.get('/profile',(req,res)=>{
     res.render('profile');
 })
