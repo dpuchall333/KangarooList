@@ -41,9 +41,18 @@ app.get('/',function(req,res){
       KangarooList.find({},function(err, kangarooLists){
           if(err){
               console.log(err);
-          }
+          }  
+          
           res.render('home',{ list: kangarooLists})
+         
       });
+      Page.find({},function(err,pages){
+          if(err){
+              console.log(err);
+          }
+          res.render('home',{pages: pages});
+      });
+      
       //username: req.sesssion.user.username,
     }
     else{
@@ -62,6 +71,12 @@ app.get('/create/page',function(req,res){
 
 app.post('/create/page',function(req,res){
     if(req.session.user.username){
+      /*  KangarooList.find({},function(err, kangarooLists){
+            if(err){
+                console.log(err);
+            }
+            res.send('create-page',{ list: kangarooLists})
+        });*/
        const note =  new Note({
             content: req.body.description,
             data: new Date(),

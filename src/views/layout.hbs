@@ -50,14 +50,13 @@
       </li>
     {{else}}
       <div class='conainer'>
+        
         <h1>Welcome to Kangaroo!</h1>
+     
         <h3>Let's Get Started. </h3>
      <div class='row'>
        <div class='col'>
             <a class="btn btn-primary" href="/login" role="button">Login</a>
-       </div>
-       <div class='col'>
-         <img src = 'img/bookmark.svg' alt ='bookmark' height='500' width= '600'/>
        </div>
       <div class='col'>
         <a class="btn btn-primary" href="/createAccount" role="button">Create Account</a>
@@ -66,17 +65,18 @@
        
       </div>
    {{/if}}
- 
-     
+
     {{{body}}}
-   
-   
-  
-     <footer class='footer fixed-bottom'>
+    {{#if user}}
+    {{else}}
+       <div class='col'>
+         <img src = 'img/bookmark.svg' alt ='bookmark' height='300' width= '200'/>
+       </div>
+      {{/if}}
+  </body>
+    <footer class='footer fixed-bottom'>
     <div class='container'>
       <p class="mt-5 mb-3 text-muted">&copy; Kangaroo - Daniela Puchall 2021</p>
       </div>
   </footer>
-  </body>
-  
 </html>

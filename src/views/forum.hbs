@@ -1,61 +1,3 @@
-  <!--
-	<div id="content">
-		<header>
-			<h1>Kangaroo Post</h1>
-		</header>
-		<main>
-			<div class="main-container">
-				<button type="button" id="btn-show-modal-post" class="btn btn-warning" data-target='#modal-post' > Post Kangaroo List</button>
-			</div>
-		</main>
-		
-		<div id="modal-post" class="modal fade" tabindex="-1" role='dialog' aria-hidden="true">
-			<div class='modal-dialog' role='document'>
-            <div class="modal-content">
-                <div class='modal-header'>
-                    <h5 class='modal-title'> Create a Forum Post</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-				<div class="modal-body">
-					<label for="title">Title</label>
-
-					<input type="text" id="code-snippet-title" name="title" value="">
-				</div>
-				<div>
-					<label for="listInfo">Content</label>
-
-					<textarea id="post-content" name="code" rows="4" cols="50"></textarea>
-				</div>
-
-                <div class= 'modal-footer'>
-               
-				<button type="button" class="submit btn-primary" id="create-post" >Post List</button>
-				 <button type="button" class ="close btn btn-secondary" data-dismiss="modal">Cancel</button>
-                </div>
-			</div>
-		</div>
-        </div>
-
-      
-		<div id='previous-post'></div>
-		<div id="modal-comment" class="modal">
-			<div class="modal-content">
-
-				<div>
-					<label for="title">Comment</label>
-					<input type="text" id="comment-text" name="title" value="">
-				</div>
-
-				<input type="button" class="submit" id="create-comment" value="Comment">
-				<input type="button" id = 'closeComment' class="close" value="Cancel">
-				<input type="hidden" id="post-id" value="">
-			</div>
-		</div>
-
-	</div>
-		!-->
 <div class='container'>
     
         <h3>Forum</h3>
@@ -65,17 +7,17 @@
         <!-- Button trigger modal -->
 <div class='row'>
 <div class='col'>
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#post-modal">
 Post A List
 </button>
 </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="post-modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post A List</h5>
+        <h5 class="modal-title" id="postModalLabel">Post A List</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -85,21 +27,65 @@ Post A List
             <div class="input-group-prepend">
              <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
              </div>
-             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+             <input type="text" id="post-title" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Description</span>
         </div>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea id ="post-content" class="form-control" aria-label="With textarea"></textarea>
 </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Post List</button>
+        <button type="button" id ='create-post' class="btn btn-primary">Post List</button>
       </div>
     </div>
   </div>
 
 </div> 
 </div>
+
+<div class="container">
+  <div id='previous-post'>
+    <div class='row'>
+<div class='col'>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-comment">
+Comment
+</button>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal-comment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Comment On a Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Comment</span>
+        </div>
+        <textarea class="form-control" id='comment-text' aria-label="With textarea"></textarea>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Comment</button>
+      </div>
+    </div>
+  </div>
+
+</div> 
+</div>
+
+</div>
+
+
+
+

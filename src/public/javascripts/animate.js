@@ -25,5 +25,5 @@ $(document).ready(function() {
             clearInterval(timer);
 
           }
-       $("#jump").fade();
+      
 });

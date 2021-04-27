@@ -1,14 +1,4 @@
 
-/*//Need for button to redirect to register page
-document.getElementById("myButton").onclick = function () {
-    location.href = "www.yoursite.com";
-};*/
-/*
-$(document).ready(function(){
-   $('#modal-comment').
-  });
-
-  */
 
  function createComment(id){
     const modalComment = document.querySelector('#modal-comment');
@@ -27,48 +17,24 @@ $(document).ready(function(){
       let url = 'http://localhost:3000/forum';
       getComments();
   
-     const mainbtn = document.getElementById('btn-show-modal-post');
-      mainbtn.addEventListener('click', function(){
-         const modal_div = document.querySelector('.modal');
-         modal_div.style.display = 'block';
-       });
+ 
   
-  const cancelBtn = document.querySelector('.close');
-  cancelBtn.addEventListener('click',function(){
-      const modal_div = document.querySelector('.modal');
-      modal_div.style.display = 'none';
-  });
-  
-  const cancelComment = document.getElementById('closeComment');
-  cancelComment.addEventListener('click',function(){
-      const modal_comment = document.querySelector("#modal-comment");
-      modal_comment.style.display = 'none';
-  });
-  
-  const createbtn = document.getElementById('create-post');
-  createbtn.addEventListener('click',function(){
-      const title = document.querySelector('#post-title').value;
-      const listsInfo = document.querySelector('#post-content').value;
-  
+
+      $('#create-post').on('click', function (e) {
+        const title = document.querySelector('#post-title').value;
+      const listInfo = document.querySelector('#post-content').value;
       console.log("Title: "+ title);
       console.log('Content: '+ listInfo);
-      postCode(title,listInfo);
-      const modal_div = document.querySelector('.modal');
-      modal_div.style.display = 'none';
-  });
+      postList(title,listInfo);
+     
+      });
   
-  const commentbtn = document.getElementById('create-comment');
-  commentbtn.addEventListener('click',function(){
-      //id = document.querySelector('#code-snippet-id');
-      const id = document.querySelector('#post-id').value;
+  $('#create-comment').on('click',function(e){
+    const id = document.querySelector('#post-id').value;
     
-      const comment = document.querySelector('#comment-text').value;
-      
-    //  console.log('New id: '+ id);
-      postComment(id,comment);
-      const modal_comment = document.querySelector("#modal-comment");
-      modal_comment.style.display = 'none';
-  })
+    const comment = document.querySelector('#comment-text').value;
+    postComment(id,comment);
+  });
   
       async function getComments(){
           const response = await fetch(url);
@@ -80,15 +46,15 @@ $(document).ready(function(){
           else{ 
               
               const root = document.querySelector('#previous-post');
-              for (const c of data.codeComments){
+              for (const c of data.lists){
                   
                  const title = document.createElement('h2');
                  title.textContent = c.title;
                  root.append(title);
   
-                 const code = document.createElement('pre');
-                  code.textContent = c.code;
-                  root.appendChild(code);
+                 const header = document.createElement('pre');
+                  header.textContent = c.header;
+                 root.appendChild(header);
   
                   const comment = document.createElement('ul');
                   for (i in c.comment){
@@ -123,10 +89,8 @@ $(document).ready(function(){
       }
   
    
-  async function postCode( title, listInfo){
-     /*if (err){
-          console.log(err);
-      }*/
+  async function postList( title, listInfo){
+   
     
       const options ={
            method:'POST',
@@ -145,7 +109,7 @@ $(document).ready(function(){
   
        async function postComment(id,comment){
         
-          
+          //need to change
           let url = `http://localhost:3000/forum/${id}/comments`;
            const options ={
                 method:'POST',
