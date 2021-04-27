@@ -5,13 +5,26 @@
         <br><br> 
 
 
-<ol>
-
-    {{#each list}}
-        <li>{{this.list_name}} </li>
-    {{/each}}
-  
-</ol>
+<div = 'align_center'>
+<div class ='container '>
+    <div class='row align-self-start'>
+        <div class='col-6'>
+        <div class='list-group '>
+            {{#each list}}
+            <a href=# class='list-group-item clearfix list-group-item-action flex-column align-items-start'>
+                <div class ='d-flex w-100 justify-content-between'>
+                    <h5 class='mb-1'> {{this.list_name}} </h5>
+                    <small> Date TBD</small>
+                </div>
+                <p class='mb-1'>{{this.header}}</p>
+                
+            </a>
+           
+            
+      <!--<li><a href="{{this.url}}">{{this.page_name}}</a> - [<a href="/page/{{this.slug}}">details</a>] </li> !-->  
+            {{/each}}
+        </div>
+        </div>
 
 </div>
 
