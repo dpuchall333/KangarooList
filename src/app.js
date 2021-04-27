@@ -81,7 +81,7 @@ app.post('/create/page',function(req,res){
             content: req.body.description,
             data: new Date(),
         });
-        new Page({
+       const p =  new Page({
             username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
@@ -91,7 +91,8 @@ app.post('/create/page',function(req,res){
             notes: note,
             id : req.session.user._id
 
-        }).save(function(err){
+        })
+        p.save(function(err){
             if (err){
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
@@ -100,6 +101,23 @@ app.post('/create/page',function(req,res){
                 //res.redirect('/index');
             }
         });
+        KangarooList.findAndModify(req.body.listName,{
+            "$push":{ 
+                pages: p
+            }
+        }, (err, docs)=>{
+            if(err){
+                res.json({
+                    "error": "Comment was not added, try again"
+                });
+            }else{
+                res.json({
+                    "message": "Update to comments succcesful",
+                    "docs": docs
+                });
+            }
+        });
+
     }
     else{
        res.redirect('/login');
