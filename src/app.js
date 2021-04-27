@@ -132,7 +132,7 @@ app.get('/page/:slug',(req,res)=>{
                 //username: user.username,
                 list_name: page.list_name,
                 //university: user.university,
-                shared: page.shared,
+                //shared: page.shared,
                 page_name: page.page_name,
                 url: page.url,
                 notes: page.content,
