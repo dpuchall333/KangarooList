@@ -4,7 +4,7 @@ Applied Internet Technologies
 Spring 2021
 
 Final Project: Milestone #1
-To Run: PORT=10970 NODE_ENV=PRODUCTION node app.js
+To Run: PORT=10970 NODE_ENV=PRODUCTION node src/app.js
 # Kangaroo
 ## Overview
  As a student or researcher, there are often endless websites, papers, links to return to. 
