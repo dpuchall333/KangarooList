@@ -41,7 +41,7 @@ const UserSchema = new Schema ({
 
 //Kangaroo List
 const KangarooListSchema = new Schema({
-    
+    username: String,
     //university: {type:String, required: false},
     list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
@@ -53,7 +53,7 @@ const KangarooListSchema = new Schema({
 
 //Page (Bookmark) in a Kangaroo List
 const PageSchema = new Schema({
-    //username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
+    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
    // university: {type:String, required: false},
     list_name: String,
     shared: {type: Boolean, default: false, required: true},

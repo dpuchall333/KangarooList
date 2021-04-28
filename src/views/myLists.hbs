@@ -1,12 +1,37 @@
 <h3>{{title}}</h3>
+<h5>Created By: {{username}}</h4>
+<div class ='container '>
+    <div class='row align-self-start'>
+        <div class='col-6'>
+           
+        <div class='list-group '>
+             {{#each pages}}
+            <a href={{this.url}} class='list-group-item clearfix list-group-item-action flex-column align-items-start'>
+                 <div class ='d-flex w-100 justify-content-between'>
+                    <h5 class='mb-1'> {{this.page_name}} </h5>
+                    <small> {{this.notes.date}}</small>
+                </div>
+                <p class='mb-1'>{{this.notes.content}}</p>
 
-<div>
-
-   <!-- {{#each allpages}}!-->
-       <div class='indivList'>
-           List: {{list_name}}
-       </div>
-
-  <!--  {{/each}} !-->
-  
+            </a>
+             {{/each}}
+        </div>
+       
+        </div>
 </div>
+</div>
+        <!---
+           {{#each pages}}
+            <a href=# class='list-group-item clearfix list-group-item-action flex-column align-items-start'>
+                <div class ='d-flex w-100 justify-content-between'>
+                    <h5 class='mb-1'> {{this.page_name}} </h5>
+                    <small> Date TBD</small>
+                </div>
+                <p class='mb-1'>{{this.url}}</p>
+                
+            </a>
+           
+            
+      <li><a href="{{this.url}}">{{this.page_name}}</a> - [<a href="/page/{{this.slug}}">details</a>] </li>  
+            {{/each}}
+        !-->

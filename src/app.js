@@ -38,7 +38,7 @@ app.get('/',function(req,res){
    //res.render("Made it");
     //if user is signed in --> homepage is changed
   if(req.session.user){
-      KangarooList.find({},function(err, kangarooLists){
+      KangarooList.find({username:req.session.user.username},function(err, kangarooLists){
           if(err){
               console.log(err);
           }  
@@ -82,41 +82,52 @@ app.post('/create/page',function(req,res){
             data: new Date(),
         });
        const p =  new Page({
-            username:  req.session.user.username, //req.session.user.username, 
+            //username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            shared: req.body.status,
+            //shared: req.body.status,
             page_name: req.body.pageName, 
             url: req.body.url,
-            notes: note,
+            
             id : req.session.user._id
 
         })
         p.save(function(err){
             if (err){
+                
                 res.render('create-page',{'message': 'Error saving page, try again'});
             }
             else{
                 res.render('create-page', {'message': 'Successfully Created Page'});
                 //res.redirect('/index');
             }
+
+           
         });
-        KangarooList.findAndModify(req.body.listName,{
-            "$push":{ 
-                pages: p
-            }
-        }, (err, docs)=>{
-            if(err){
-                res.json({
-                    "error": "Comment was not added, try again"
-                });
-            }else{
-                res.json({
-                    "message": "Update to comments succcesful",
-                    "docs": docs
-                });
-            }
-        });
+
+       KangarooList.findOneAndUpdate(
+           {list_name: req.body.listName},
+           {$push:{pages:p }},
+           function (err, success){
+               if(err){
+                   console.log(err);
+               }
+               else{
+                    console.log(success);
+               }
+           })
+       
+           Page.findOneAndUpdate(
+            {page_name: req.body.pageName},
+            {$push:{notes:note }},
+            function (err, success){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                     console.log(success);
+                }
+            })
 
     }
     else{
@@ -142,7 +153,10 @@ app.get('/page/:slug',(req,res)=>{
                 console.log(err);
             }
         })
+
     });
+
+    
 });
 
 app.get('/create/list',function(req,res){
@@ -156,9 +170,9 @@ app.get('/create/list',function(req,res){
 
 app.post('/create/list',function(req,res){
     if(req.session.user.username){
-        console.log(req.body.status);
+        console.log(req.session);
         new KangarooList({
-           // username:  req.body.username, //req.session.user.username, 
+            username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
             shared: req.body.status,
@@ -171,10 +185,12 @@ app.post('/create/list',function(req,res){
                 res.render('create-list',{'message': 'Error saving list, try again'});
             }
             else{
-                res.render('create-list', {'message': 'Successfully Created Page'});
+                res.render('create-list', {'message': 'Successfully Created List'});
                 //res.redirect('/index');
             }
         });
+
+
     }
     else{
         res.redirect('/login');
@@ -184,21 +200,24 @@ app.post('/create/list',function(req,res){
 app.get('/list/:slug',(req,res)=>{
     KangarooList.findOne({slug: req.params.slug}, function(err,list){
         User.findOne({'_id':list.id},function(err,user){
-            
-            res.render('/myLists',{
-                //username: user.username,
-                list_name: KangarooList.list_name,
+            Page.find({'list_name':list.list_name}, function(err, page){
+                res.render('myLists',{
+
+                username:req.session.user.username,
+                 title: list.list_name,
                 //university: user.university,
                 //shared: page.shared,
-                //page_name: page.page_name,
+                pages: page,
+                  
                 //url: page.url,
                 //notes: page.content,
-            });
+             });
 
             if (err){
                 console.log(err);
             }
         })
+        });
     });
 });
 
