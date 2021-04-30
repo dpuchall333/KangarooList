@@ -2,7 +2,11 @@
 <div class='container'>
 
     <div class='row'>
+        <div class='col-4'>
+            <ion-icon name="person-circle-outline"></ion-icon>
+        </div>
         <div class='col-9'>
+
             Profile<br>
             <h2>{{username}}</h2>
         </div>
@@ -10,6 +14,48 @@
             University: {{university}} <br>
             email: {{email}}
         </div>
+        <div class='col-4'>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfile">
+  Edit Profile
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileLabel">Edit Profile Aspects</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">University</span>
+            </div>
+            <input type="text" class="form-control" id="university" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+             <span class="input-group-text">Likes and Hobbies</span>
+            </div>
+            <textarea class="form-control" id="likes" aria-label="With textarea"></textarea>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save profile changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        
         <div class='col-6'>
                <br>
         </div>
@@ -42,8 +88,24 @@
             {{/each}}
         </div>
         </div>
+          
+    </div>
+
 </div>
 </div> 
+
+
+         <div class='container'>
+            <div class='row'>
+        <div class='col-4'>
+            <p class="h3">Create a new List or Page </p>
+            <a class="btn btn-primary" href="/create/page" role="button">Create Page</a>
+            <a class="btn btn-info" href="/create/list" role="button"> Create List</a>
+        </div>
+
+
+
+
 <!--
 <ul>
     {{#each articlesList}}

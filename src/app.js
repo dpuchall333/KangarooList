@@ -264,18 +264,18 @@ app.post('/login',(req,res)=>{
 //FORUM - AJAX Based
 
 
-app.post('/forum',(req,res)=>{
-    if(req.session.user){
-        Kangaroo.find({'shared':'public'},function(err,list){
+app.get('/forum',(req,res)=>{
+   // if(req.session.user){
+        KangarooList.find({},function(err,list){
             if(err){
                 console.log(err);
             }
-            res.render('forum',{ list:list});
+            res.render('forum',{ 
+                list:list
+            });
         });
-    }
-    else{
-    res.render('index');
-    } 
+   // }
+    
    /* const p = new Post({
         title: req.body.title,
         list_name: req.body.list_name,
@@ -294,7 +294,7 @@ app.post('/forum',(req,res)=>{
          }
     });*/
 });
-
+/*
 app.get('/forum/:id/comments/', (req, res)=>{ 
     Post.findByIdAndUpdate(req.params['id'],{
         "$push":{ 
@@ -313,7 +313,7 @@ app.get('/forum/:id/comments/', (req, res)=>{
         }
     });
 });
-
+*/
 app.get('/forum',(req,res)=>{
     Post.find({}, function (err, post){
         res.render('forum');
