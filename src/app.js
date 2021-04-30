@@ -43,7 +43,7 @@ app.get('/',function(req,res){
               console.log(err);
           }  
           
-          res.render('home',{ list: kangarooLists})
+          res.render('home',{ list: kangarooLists, username:req.session.user.username})
          
       });/*
       Page.find({},function(err,pages){
@@ -153,10 +153,7 @@ app.get('/page/:slug',(req,res)=>{
                 console.log(err);
             }
         })
-
     });
-
-    
 });
 
 app.get('/create/list',function(req,res){
@@ -228,19 +225,6 @@ app.get('/create',function(req,res){
 
 //Repeat for create List
 
-app.get('/profile/:username',(req,res)=>{
-    User.findOne({username: req.params.username},function(err,user){
-        KangarooList.find({'id':user._id},function(err,lists){
-            if(err){
-                console.log(err);
-            }
-            res.render('user',{
-                username : user.username,
-                kangarooLists: lists,
-            });
-        });
-    });
-});
 
 app.get('/createAccount',(req,res)=>{
     res.render("createAccount");
@@ -339,7 +323,26 @@ app.get('/forum',(req,res)=>{
 }); 
 //Profile Section 
 app.get('/profile',(req,res)=>{
+   const username = req.session.user.username;
+    res.redirect('/profile/'+username);
     res.render('profile');
 })
+
+
+app.get('/profile/:username',(req,res)=>{
+    User.findOne({username: req.params.username},function(err,user){
+        KangarooList.find({username:req.session.user.username},function(err,lists){
+            if(err){
+                console.log(err);
+            }
+            res.render('profile',{
+                username : user.username,
+                university: user.university,
+                email:user.email,
+                list: lists,
+            });
+        });
+    });
+});
 
 app.listen(process.env.PORT || 3000);

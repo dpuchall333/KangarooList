@@ -1,8 +1,49 @@
+<!--Create button to edit account !--> 
+<div class='container'>
 
-<h1> Page Under Construction</h1>
-
-
-
+    <div class='row'>
+        <div class='col-9'>
+            Profile<br>
+            <h2>{{username}}</h2>
+        </div>
+        <div class='col-4'>
+            University: {{university}} <br>
+            email: {{email}}
+        </div>
+        <div class='col-6'>
+               <br>
+        </div>
+    </div>
+ </div>
+ <div class='container'>
+    <div class='row'>
+        <div class='col-4'>
+            <p class="h1">My Lists: </p>
+        </div>
+          
+    </div>
+ 
+    
+    <div class='row align-self-start'>
+        <div class='col-6'>
+        <div class='list-group '>
+            {{#each list}}
+            <a href='/list/{{this.slug}}' class='list-group-item clearfix list-group-item-action flex-column align-items-start'>
+                <div class ='d-flex w-100 justify-content-between'>
+                    <h5 class='mb-1'> {{this.list_name}} </h5>
+                    <small> Date TBD</small>
+                </div>
+                <p class='mb-1'>{{this.header}}</p>
+                
+            </a>
+           
+            
+      <!--<li><a href="{{this.url}}">{{this.page_name}}</a> - [<a href="/page/{{this.slug}}">details</a>] </li> !-->  
+            {{/each}}
+        </div>
+        </div>
+</div>
+</div> 
 <!--
 <ul>
     {{#each articlesList}}
