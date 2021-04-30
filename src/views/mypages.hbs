@@ -1,18 +1,18 @@
-<h3>{{title}}</h3>
+<h3>{{page_name}}</h3>
 
 <div>
 
-   <!-- {{#each allpages}}!-->
        <div class='indivPage'>
-           Page Name: {{page_name}}
+         <p>
            List: {{list_name}}
            Shared:{{shared}}
-           URL: <a href="{{url}}">{{url}}</a> </br>
-           <!--Posted by:<a href="/user/{{userAuthor}}">{{userAuthor}}</a> !--> </br>
+           URL: <a href="{{url}}"></a> {{slug}} </br>
+           </br>
             Notes: <br>
-            {{notes}}
+           <span class="border border-warning">{{notes}}</span> 
+            </p>
+            Created On: {{date}}
        </div>
 
-  <!--  {{/each}} !-->
   
 </div>

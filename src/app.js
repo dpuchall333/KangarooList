@@ -65,7 +65,7 @@ app.get('/create/page',function(req,res){
         res.render('create-page',{}); 
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
@@ -80,15 +80,22 @@ app.post('/create/page',function(req,res){
        const note =  new Note({
             content: req.body.description,
             data: new Date(),
+            page_name: req.body.pageName
         });
+        note.save(function(err){
+             if(err){
+                 res.render('create-page',{'message':'Error saving note, try again'});
+             }
+             
+        });
+
        const p =  new Page({
             //username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            //shared: req.body.status,
+            shared: req.body.shared,
             page_name: req.body.pageName, 
             url: req.body.url,
-            
             id : req.session.user._id
 
         })
@@ -131,22 +138,25 @@ app.post('/create/page',function(req,res){
 
     }
     else{
-       res.redirect('/login');
+       res.redirect('/');
     }
 });
 
 app.get('/page/:slug',(req,res)=>{
+if(req.session.user){
     Page.findOne({slug: req.params.slug}, function(err,page){
+        Note.findOne({page_name: page.page_name},function(err,notes){
         User.findOne({'_id':page.id},function(err,user){
             
-            res.render('/mypages',{
-                //username: user.username,
-                list_name: page.list_name,
-                //university: user.university,
-                //shared: page.shared,
+            res.render('mypages',{
                 page_name: page.page_name,
+                list_name: page.list_name,
+                shared: page.shared,
                 url: page.url,
-                notes: page.content,
+                slug: page.slug,
+                notes: notes.content,
+                date: notes.date
+                
             });
 
             if (err){
@@ -154,6 +164,11 @@ app.get('/page/:slug',(req,res)=>{
             }
         })
     });
+    });
+}
+else{
+    res.redirect('/');
+}
 });
 
 app.get('/create/list',function(req,res){
@@ -161,7 +176,7 @@ app.get('/create/list',function(req,res){
         res.render('create-list',{}); 
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
@@ -190,17 +205,18 @@ app.post('/create/list',function(req,res){
 
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
 app.get('/list/:slug',(req,res)=>{
+    if(req.session.user.username){
     KangarooList.findOne({slug: req.params.slug}, function(err,list){
         User.findOne({'_id':list.id},function(err,user){
             Page.find({'list_name':list.list_name}, function(err, page){
                 res.render('myLists',{
 
-                username:req.session.user.username,
+                username:list.username,
                  title: list.list_name,
                 //university: user.university,
                 //shared: page.shared,
@@ -216,10 +232,20 @@ app.get('/list/:slug',(req,res)=>{
         })
         });
     });
+    }
+    else{
+        res.redirect('/');
+    }
+
 });
 
 app.get('/create',function(req,res){
+    if(req.session.user.username){
     res.render('create');
+    }
+    else{
+        res.redirect('/');
+    }
 })
 
 
@@ -265,7 +291,7 @@ app.post('/login',(req,res)=>{
 
 
 app.get('/forum',(req,res)=>{
-   // if(req.session.user){
+ if(req.session.user){
         KangarooList.find({},function(err,list){
             if(err){
                 console.log(err);
@@ -274,7 +300,10 @@ app.get('/forum',(req,res)=>{
                 list:list
             });
         });
-   // }
+    }
+    else{
+        req.redirect('/');
+    }
     
    /* const p = new Post({
         title: req.body.title,
@@ -330,6 +359,7 @@ app.get('/profile',(req,res)=>{
 
 
 app.get('/profile/:username',(req,res)=>{
+    if(req.session.user.username){
     User.findOne({username: req.params.username},function(err,user){
         KangarooList.find({username:req.session.user.username},function(err,lists){
             if(err){
@@ -343,6 +373,22 @@ app.get('/profile/:username',(req,res)=>{
             });
         });
     });
+
+    User.findOneAndUpdate(
+        {username: req.session.user.username},
+        {$push:{university:req.body.university }},
+        function (err, success){
+            if(err){
+                console.log(err);
+            }
+            else{
+                 console.log(success);
+            }
+        })
+    }
+    else{
+        res.redirect('/');
+    }
 });
 
 app.listen(process.env.PORT || 3000);

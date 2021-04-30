@@ -34,28 +34,26 @@ const UserSchema = new Schema ({
     password: {type:String, unique:true, require:true},
     //Other information for "profile", all optional
     univeristy: {type:String, required: false},
-    kangaroo_lists: [{type: Schema.Types.ObjectId, ref: 'KangarooList', required:'false'}],
+    kangaroo_lists: [{type: Schema.Types.ObjectId, ref: 'KangarooList', required:false}],
     //likes: [{type: Schema.Types.ObjectId, ref: 'Likes', required:'false'}],
-    likes: [String],
+    //likes: [String],
+    topics:[String],
 });
 
 
 //Kangaroo List
 const KangarooListSchema = new Schema({
     username: String,
-    //university: {type:String, required: false},
     list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
     header: String,
-    shared:String ,
+    shared: {type: Boolean, default: false, required: true} ,
     id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
-
 });
 
 //Page (Bookmark) in a Kangaroo List
 const PageSchema = new Schema({
-    username: [{type: Schema.Types.ObjectId, ref: 'User', required:'true'}],
-   // university: {type:String, required: false},
+    username: [{type: Schema.Types.ObjectId, ref: 'User', required:true}],
     list_name: String,
     shared: {type: Boolean, default: false, required: true},
     page_name: String, 
@@ -68,13 +66,14 @@ const PageSchema = new Schema({
 const NoteSchema = new Schema({
     content: {type:String, required:false},
     date:{type:Date, required: false},
-    id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
+    //id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
+    page_name: String, 
 })
 
 const PostSchema = new Schema({
     title: String,
     list_name: String,
-    //topic: String,
+    topic: [String],
     author: String,
     university: String,
     comment: [String],
