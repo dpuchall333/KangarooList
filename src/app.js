@@ -38,22 +38,15 @@ app.get('/',function(req,res){
    //res.render("Made it");
     //if user is signed in --> homepage is changed
   if(req.session.user){
-      KangarooList.find({username:req.session.user.username},function(err, kangarooLists){
+      //higher order function 
+      KangarooList.find({username:req.session.user.username}).sort({date: -1}).exec(function(err, kangarooLists){
           if(err){
               console.log(err);
           }  
-          
           res.render('home',{ list: kangarooLists, username:req.session.user.username})
          
-      });/*
-      Page.find({},function(err,pages){
-          if(err){
-              console.log(err);
-          }
-          res.render('home',{pages: pages});
-      });*/
-      
-      //username: req.sesssion.user.username,
+      });
+    
     }
     else{
           res.render('index');
