@@ -90,6 +90,7 @@ app.post('/create/page',function(req,res){
             shared: req.body.shared.value,
             page_name: req.body.pageName, 
             url: req.body.url,
+            date: new Date(),
             id : req.session.user._id
 
         })

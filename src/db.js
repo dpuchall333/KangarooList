@@ -60,6 +60,7 @@ const PageSchema = new Schema({
     shared: {type: Boolean, default: false, required: true},
     page_name: String, 
     url: String,
+    date: Date,
     notes: [{type: Schema.Types.ObjectId, ref:'Note'}],
     id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 });
