@@ -371,12 +371,12 @@ app.get('/:username',(req,res)=>{
 });
 
 app.get('/editProfile',function(req,res){
-    if(req.session.user){
+  //  if(req.session.user){
         res.render('editProfile',{}); 
-    }
-    else{
-        res.redirect('/');
-    }
+   // }
+  //  else{
+  //      res.redirect('/');
+//  }
 });
 
 app.post('/editProfile',function(req,res){
@@ -393,7 +393,7 @@ app.post('/editProfile',function(req,res){
                     console.log(success);
                   
                }
-           })*/
+           })
 
            KangarooList.updateMany(
             {username: req.session.user.username},
@@ -408,7 +408,8 @@ app.post('/editProfile',function(req,res){
                 }
             })
             res.redirect('/profile');
-            
+            */
+           console.log('made it');
     }
     else{
        res.redirect('/');
