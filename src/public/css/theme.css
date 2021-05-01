@@ -11,6 +11,9 @@ body {
   background: #ffffff;
 
 }
+.list-group{
+  overflow: auto;
+}
 a {
   outline: none;
   color:#f0a000;
