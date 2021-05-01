@@ -124,25 +124,19 @@ other registered users can access the page/List
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
-1. (TBD) Slack App Integration with Bolt for JavaScript(7pts): A Slack app is a web applications that allows for integration with the Slack messaging app. In this project, I will use the framework developemed for the web app and create a modified version of Kangaroo as a  Slack App. This app will allow users to enhance the bookmarking features currently available in Slack. It will provide a space for users to save resources shared in Slack channels in an organized fasion. 
-- Integrate Slack App and MongoDB 
 
-2. Bootstrap (5pts): I will be using bootstrap to as a front end framework to build a dynamic and responsive web application. Bootstrap is a JavaScript library. Aspects of JQuery JavaScript library will also be used to enhance the web application. 
 
-3. Authenticaion Plugin Option (3pts)
+1. Bootstrap (3pts): I will be using bootstrap to as a front end framework to build a dynamic and responsive web application. Bootstrap is a JavaScript library. Aspects of JQuery JavaScript library will also be used to enhance the web application. 
+
+2. Authenticaion Plugin Option (3pts)
     Authentication Plugin opton integration would allow the user to sign into or create a more secure account with Mongoose Passport library.
 
-4. JQuery (3pts) Include JQuery Animation and additional features 
+3. JQuery (3pts) Include JQuery Animation and additional features 
 
 [Link to Initial Main Project File](https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/app_example.js)
 
 ## Annotations/References Used
-1. [Slack App Getting Started](https://slack.dev/bolt-js/tutorial/getting-started)
-
-2. [Bolt for JavaScript](https://slack.dev/bolt-js/reference) 
-
-3. [Bootstrap](https://getbootstrap.com/) 
-
-4. [JQuery](https://jquery.com/)
-5. [Passport-Local-Mongoose](https://www.npmjs.com/package/passport-local-mongoose)
+1. [Bootstrap](https://getbootstrap.com/) 
+2. [JQuery](https://jquery.com/)
+3. [Passport-Local-Mongoose](https://www.npmjs.com/package/passport-local-mongoose)
 
