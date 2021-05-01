@@ -369,16 +369,16 @@ app.get('/:username',(req,res)=>{
         res.redirect('/');
     }
 });
-
+/*
 app.get('/editProfile',function(req,res){
     if(req.session.user){
-        res.render('editProfile',{}); 
+        res.render('editProfile'); 
     }
     else{
         res.redirect('/');
     }
 });
-
+*/
 app.post('/editProfile',function(req,res){
     if(req.session.user){
      
