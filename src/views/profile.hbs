@@ -9,7 +9,11 @@
             <h5>University:</h5> <p>{{university}}</p> </br>
              <h5>Email:</h5> <p>{{email}}</p></br>
              <h5>Topics:</h5> </br>
-             <p>{{topics}}</p>
+            
+             {{#each topics}}
+             <p style='color:mediumslateblue'> - {{this}}</p></br>
+             {{/each}}
+            
             </h5>
         </div>
 </div>
