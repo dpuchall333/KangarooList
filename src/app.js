@@ -344,7 +344,7 @@ app.get('/forum',(req,res)=>{
 app.get('/profile',(req,res)=>{
    const username = req.session.user.username;
     res.redirect('/profile/'+username);
-    res.render('profile');
+    //res.render('profile');
 })
 
 
