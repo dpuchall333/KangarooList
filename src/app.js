@@ -404,7 +404,7 @@ app.post('/editProfile',function(req,res){
                 }
                 else{
                      console.log(success);
-                     res.redirect('/profile');
+                    // res.redirect('/profile');
                 }
             })
           
