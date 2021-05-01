@@ -119,12 +119,11 @@ User with an Account:
 6. User can add optional notes to each page.
 7. User can "post" page or List to a forum where
 other registered users can access the page/List 
-8. Only the author of the notes can view the notes, other user cannot view notes provided on a page or List 
+8. Only the author of the notes can view the notes unless shared, other user cannot view notes provided on a page or List 
 9. User can order notes by date added
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
-
 
 1. Bootstrap (3pts): I will be using bootstrap to as a front end framework to build a dynamic and responsive web application. Bootstrap is a JavaScript library. Aspects of JQuery JavaScript library will also be used to enhance the web application. 
 
