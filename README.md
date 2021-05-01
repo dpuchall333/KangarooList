@@ -60,7 +60,7 @@ The application will store Users (username, password, university), Bookmarks Lis
       notes: [{content:"This is the course website for AIT", date: new Date('2021-04-01')} ]// array of notes that can be organized by date
   }  
 ```
-**notes** (only accessible by main user; notes will not be accessible in forum (for now))
+**notes**
 ```javascript
   {
       content:"This is content", //Note content
