@@ -384,20 +384,20 @@ app.post('/editProfile',function(req,res){
      
        User.findOneAndUpdate(
            {username: req.session.user.username},
-           {$set:{university:req.body.university}},
+           {$set:{university:req.body.university}}, {$push:{topics: req.body.topics}},
            function (err, success){
                if(err){
                    console.log(err);
                }
                else{
                     console.log(success);
-                    res.redirect('/profile');
+                  //  res.redirect('/profile');
                }
            })
-       
-           User.findOneAndUpdate(
+
+           KangarooList.updateMany(
             {username: req.session.user.username},
-            {$push:{topics: req.body.topics}},
+            {$set:{university:req.body.university}},
             function (err, success){
                 if(err){
                     console.log(err);
