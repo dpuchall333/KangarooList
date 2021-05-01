@@ -206,7 +206,7 @@ app.post('/create/list',function(req,res){
         User.findOne({username: req.session.user.username},function(err,current){
             KangarooList.findOneAndUpdate(
                 {list_name: req.body.listName},
-                {$push:{university:current.university}},
+                {$set:{university:current.university}},
                 function (err, success){
                     if(err){
                         console.log(err);
@@ -389,7 +389,7 @@ app.post('/editProfile',function(req,res){
      
        User.findOneAndUpdate(
            {username: req.session.user.username},
-           {$push:{university:req.body.university, topics: req.body.topics}},
+           {$set:{university:req.body.university}},
            function (err, success){
                if(err){
                    console.log(err);
@@ -400,7 +400,20 @@ app.post('/editProfile',function(req,res){
                }
            })
        
+           User.findOneAndUpdate(
+            {username: req.session.user.username},
+            {$push:{topics: req.body.topics}},
+            function (err, success){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                     console.log(success);
+                     res.redirect('/profile');
+                }
+            })
           
+            
     }
     else{
        res.redirect('/');

@@ -33,7 +33,7 @@ const UserSchema = new Schema ({
     email: String,
     password: {type:String, unique:true, require:true},
     //Other information for "profile", all optional
-    university:[String],
+    university:String,
     kangaroo_lists: [{type: Schema.Types.ObjectId, ref: 'KangarooList', required:false}],
     //likes: [{type: Schema.Types.ObjectId, ref: 'Likes', required:'false'}],
     //likes: [String],
@@ -47,7 +47,7 @@ const KangarooListSchema = new Schema({
     list_name: String,
     pages : [{type: Schema.Types.ObjectId, ref:'Page'}],
     header: String,
-    university: [String],
+    university: String,
     shared: Boolean,
     date: Date,
     id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
