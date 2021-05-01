@@ -347,9 +347,9 @@ app.get('/profile',(req,res)=>{
 })
 
 
-app.get('profile/:username',(req,res)=>{
+app.get('/:username',(req,res)=>{
     if(req.session.user){
-    User.findOne({username: req.params.username},function(err,user){
+    User.findOne({username: req.session.user.username},function(err,user){
         KangarooList.find({username:req.session.user.username},function(err,lists){
             if(err){
                 console.log(err);
@@ -370,16 +370,16 @@ app.get('profile/:username',(req,res)=>{
     }
 });
 
-app.get('/editProfile',function(req,res){
+app.get('/profile/editProfile',function(req,res){
     if(req.session.user){
-        res.render('editProfile',{}); 
+        res.render('edit-profile',{}); 
     }
     else{
         res.redirect('/');
     }
 });
 
-app.post('/editProfile',function(req,res){
+app.post('/profile/editProfile',function(req,res){
     if(req.session.user){
      
        User.findOneAndUpdate(
