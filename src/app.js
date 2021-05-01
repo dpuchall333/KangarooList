@@ -374,32 +374,7 @@ app.get('/profile/:username',(req,res)=>{
         res.redirect('/');
     }
 });
-/*
-app.post('/profile/:username',(req,res)=>{
-    if(req.session.user.username){
-       // console.log('made it');
-    User.findOneAndUpdate(
-        {username: req.session.user.username},
-        {$push:{university:req.body.university }},
-        function (err, success){
-            if(err){
-                console.log(err);
-            }
-            else{
-                console.log(success);
-                //res.redirect('/profile');
-            }
 
-            
-        })
-       
-    }
-    else{
-        res.redirect('/');
-    }
-})
-
-*/
 app.get('/editProfile',function(req,res){
     if(req.session.user.username){
         res.render('editProfile',{}); 
@@ -411,16 +386,7 @@ app.get('/editProfile',function(req,res){
 
 app.post('/editProfile',function(req,res){
     if(req.session.user.username){
-      /*  KangarooList.find({},function(err, kangarooLists){
-            if(err){
-                console.log(err);
-            }
-            res.send('create-page',{ list: kangarooLists})
-        });*/
-       
-       
-
-
+     
        User.findOneAndUpdate(
            {username: req.session.user.username},
            {$push:{university:req.body.university, topics: req.body.topics}},
