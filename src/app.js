@@ -335,9 +335,14 @@ app.get('/forum',(req,res)=>{
 
 //Profile Section 
 app.get('/profile',(req,res)=>{
+    if(req.session.user){
    const username = req.session.user.username;
     res.redirect('/profile/'+username);
     //res.render('profile');
+    }
+    else{
+        res.rendirect('/');
+    }
 })
 
 
