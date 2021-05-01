@@ -248,7 +248,7 @@ app.get('/list/:slug',(req,res)=>{
 });
 
 app.get('/create',function(req,res){
-    if(req.session.user.username){
+    if(req.session.user){
     res.render('create');
     }
     else{
@@ -342,7 +342,7 @@ app.get('/profile',(req,res)=>{
 
 
 app.get('/profile/:username',(req,res)=>{
-    if(req.session.user.username){
+    if(req.session.user){
     User.findOne({username: req.params.username},function(err,user){
         KangarooList.find({username:req.session.user.username},function(err,lists){
             if(err){
