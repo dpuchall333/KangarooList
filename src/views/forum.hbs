@@ -10,8 +10,12 @@
     <label>Find List by University: </label>
     <input type = 'text' name='university'>
     <input type = "submit" name="findUniversity" onclick ='displaymessage()' >
-    
-
+    </br>
+    <!--
+    <label>Sort By Date?:(y or leave emtpy) </label>
+    <input type = 'text' name='sort'>
+    <input type='submit'name='dateSort' onclick = 'displaymessage()'>
+!-->
     
 </form>
  
@@ -25,7 +29,7 @@
             <a href='/list/{{this.slug}}' class='list-group-item clearfix list-group-item-action flex-column align-items-start'>
                 <div class ='d-flex w-100 justify-content-between'>
                     <h5 class='mb-1'> {{this.list_name}} </h5>
-                    <small> Date TBD</small>
+                    <small> {{this.date}}</small>
                 </div>
                 <p class='mb-1'>{{this.header}}</p>
                 <p class='mb-1'>{{this.username}}</p>
@@ -41,4 +45,3 @@
     </div>
 </div>
 
-<!-- <script  type="text/javascript" src="javascripts/main.js"></script>!-->

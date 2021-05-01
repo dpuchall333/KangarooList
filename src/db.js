@@ -49,6 +49,7 @@ const KangarooListSchema = new Schema({
     header: String,
     university: [String],
     shared: Boolean,
+    date: Date,
     id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}]
 });
 
@@ -71,15 +72,7 @@ const NoteSchema = new Schema({
     page_name: String, 
 })
 
-const PostSchema = new Schema({
-    title: String,
-    list_name: String,
-    topic: [String],
-    author: String,
-    university: String,
-    comment: [String],
-    id: [{type: Schema.Types.ObjectId, ref:'UserSchema'}],
-})
+
 //Use URL Slugs
 KangarooListSchema.plugin(URLSlugs('list_name'));
 PageSchema.plugin(URLSlugs('page_name'));
@@ -88,5 +81,5 @@ mongoose.model('User',UserSchema);
 mongoose.model('KangarooList',KangarooListSchema);
 mongoose.model('Page',PageSchema);
 mongoose.model('Note',NoteSchema);
-mongoose.model('Post',PostSchema); 
+
 mongoose.connect(dbconf);

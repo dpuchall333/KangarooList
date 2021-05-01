@@ -15,7 +15,7 @@ const User = mongoose.model('User');
 const KangarooList = mongoose.model('KangarooList');
 const Page = mongoose.model('Page');
 const Note = mongoose.model('Note');
-const Post = mongoose.model('Post'); 
+
 
 // view engine setup
 app.set('view engine', 'hbs');
@@ -187,7 +187,7 @@ app.post('/create/list',function(req,res){
         new KangarooList({
             username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
-            //university: req.body.uni,
+            date: new Date(),
             shared: req.body.shared,
             //page_name: req.body.pageName, 
            header: req.body.header,
@@ -324,10 +324,15 @@ app.get('/forum',(req,res)=>{
                 const filteredLists = list.filter(l => l.username === req.query.username);
                 res.render('forum',{message: req.query.username, list: filteredLists});
             }
-            if(req.query.universiety){
+            if(req.query.university){
                 const filteredLists2 = list.filter(l => l.university === req.query.university);
                 res.render('forum',{message: req.query.university, list: filteredLists2});
-            }
+            }/*
+            if(req.query.sort){
+                const datefilter = list.sort({date:1}).exec(function(err,items){
+                    res.render('forum',{message:"Sorted By Date",list:items});
+                        });
+                    }   */
             else{
                 res.render('forum',{list:list});
             }
