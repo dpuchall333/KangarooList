@@ -2,7 +2,10 @@ body{
   margin-bottom: 100px;
 }
 p{
-  color: fuchsia
+  color: fuchsia;
+}
+h1{
+  color: rgb(68, 145, 0)
 }
 
 .editProfile { 
