@@ -94,7 +94,7 @@ app.post('/create/page',function(req,res){
             //username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            shared: req.body.shared,
+            shared: req.body.shared.value,
             page_name: req.body.pageName, 
             url: req.body.url,
             id : req.session.user._id
@@ -152,7 +152,7 @@ if(req.session.user){
             res.render('mypages',{
                 page_name: page.page_name,
                 list_name: page.list_name,
-                shared: page.shared,
+                shared: page.shared.value,
                 url: page.url,
                 slug: page.slug,
                 notes: notes.content,
@@ -188,7 +188,7 @@ app.post('/create/list',function(req,res){
             username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
             //university: req.body.uni,
-            shared: req.body.status,
+            shared: req.body.shared,
             //page_name: req.body.pageName, 
            header: req.body.header,
             id : req.session.user._id
@@ -314,6 +314,12 @@ app.get('/forum',(req,res)=>{
             if((req.query.username==='' || req.query.username === undefined) && (req.query.university==='' || req.query.university===undefined)){
                 res.render('forum',{list:list});
             }
+            if(req.query.university && req.query.username){
+                const allfilter = list.filter(l => l.username === req.query.username);
+                const newfilter = allfilter.filter(e => e.univerisity === req.query.univeristy);
+                const newmessage = req.query.username + " "+ req.query.university;
+                res.render('forum',{message: newmessage , list: newfilter});
+            }
             if(req.query.username){ 
                 const filteredLists = list.filter(l => l.username === req.query.username);
                 res.render('forum',{message: req.query.username, list: filteredLists});
@@ -322,7 +328,9 @@ app.get('/forum',(req,res)=>{
                 const filteredLists2 = list.filter(l => l.university === req.query.university);
                 res.render('forum',{message: req.query.university, list: filteredLists2});
             }
-
+            else{
+                res.render('forum',{list:list});
+            }
         });
  }
     else{
