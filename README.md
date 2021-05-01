@@ -9,10 +9,18 @@ To Run:http://linserv1.cims.nyu.edu:10970/
 
 FORMS: 
 (1)http://linserv1.cims.nyu.edu:10970/create/list
+
 (2)http://linserv1.cims.nyu.edu:10970/create/page
+
 (3)http://linserv1.cims.nyu.edu:10970/profile/editProfile
 
+
 Higher Order Functions:
+(1)https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/src/app.js#L42
+
+(2)https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/src/app.js#L311
+
+(3)https://github.com/nyu-csci-ua-0480-034-spring-2021/dpuchall333-final-project/blob/master/src/app.js#L317
 
 
 # Kangaroo
