@@ -17,7 +17,7 @@ To Run:http://linserv1.cims.nyu.edu:10970/
  1. A secure platform (username/password) 
  2. A place to organize and sort "bookmarks" by topic, priority, or date
  3. For each bookmark, a space to write notes, reminders, or share the bookmark on a Forum for other   students 
- 4. Forum sorted by topic and university (if indicated by user)
+ 4. Forum sorted by username and university (if indicated by user)
 
 ## Data Model 
 The application will store Users (username, password, university), Bookmarks List, and User Notes
@@ -121,8 +121,7 @@ User with an Account:
 6. User can add optional notes to each page.
 7. User can "post" page or List to a forum where
 other registered users can access the page/List 
-8. Only the author of the notes can view the notes unless shared, other user cannot view notes provided on a page or List 
-9. User can order notes by date added
+8. Only the author of the notes can view the notes unless shared, other user cannot view notes provided on a page or List. However if a list is shared, all users can view it.
 10. User can order pages by topic, priority (numbered), or last updated note (date)
 
 ## Research Topics
