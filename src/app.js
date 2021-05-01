@@ -338,7 +338,7 @@ app.get('/forum',(req,res)=>{
 app.get('/profile',(req,res)=>{
     if(req.session.user){
    const username = req.session.user.username;
-    res.redirect('/profile/:'+username);
+    res.redirect('/profile/'+username);
     //res.render('profile');
     }
     else{
