@@ -326,9 +326,9 @@ app.get('/forum',(req,res)=>{
             if(req.query.university){
                 const filteredLists2 = list.filter(l => l.university === req.query.university);
                 res.render('forum',{message: req.query.university, list: filteredLists2});
-            }/*
-            if(req.query.sort){
-                const datefilter = list.sort({date:1}).exec(function(err,items){
+            }
+            /*if(req.query.sort){
+                 list.sort({date:-1}).exec(function(err,items){
                     res.render('forum',{message:"Sorted By Date",list:items});
                         });
                     }   */
