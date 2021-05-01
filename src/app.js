@@ -309,7 +309,7 @@ app.get('/forum',(req,res)=>{
             }
             if(req.query.university && req.query.username){
                 const allfilter = list.filter(l => l.username === req.query.username);
-                const newfilter = allfilter.filter(e => e.university[0] === req.query.university);
+                const newfilter = allfilter.filter(e => e.university === req.query.university);
                 const newmessage = req.query.username + " "+ req.query.university;
                 res.render('forum',{message: newmessage , list: newfilter});
             }
