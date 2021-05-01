@@ -39,7 +39,7 @@ app.get('/',function(req,res){
     //if user is signed in --> homepage is changed
   if(req.session.user){
       //higher order function 
-      KangarooList.find({username:req.session.user.username}).sort({date: -1}).exec(function(err, kangarooLists){
+      KangarooList.find({username:req.session.user.username}).sort({date: 1}).exec(function(err, kangarooLists){
           if(err){
               console.log(err);
           }  
