@@ -342,7 +342,7 @@ app.get('/profile',(req,res)=>{
     //res.render('profile');
     }
     else{
-        res.rendirect('/');
+        res.redirect('/');
     }
 })
 
@@ -370,7 +370,7 @@ app.get('/:username',(req,res)=>{
     }
 });
 
-app.get('/editProfile',function(req,res){
+app.get('editProfile',function(req,res){
   //  if(req.session.user){
         res.render('editProfile',{}); 
    // }
@@ -379,7 +379,7 @@ app.get('/editProfile',function(req,res){
 //  }
 });
 
-app.post('/editProfile',function(req,res){
+app.post('editProfile',function(req,res){
     if(req.session.user){
      /*
        User.findOneAndUpdate(
