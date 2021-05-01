@@ -77,9 +77,10 @@ app.post('/create/page',function(req,res){
             }
             res.send('create-page',{ list: kangarooLists})
         });*/
+       
        const note =  new Note({
             content: req.body.description,
-            data: new Date(),
+            date: new Date(),
             page_name: req.body.pageName
         });
         note.save(function(err){
@@ -296,53 +297,22 @@ app.get('/forum',(req,res)=>{
             if(err){
                 console.log(err);
             }
-            res.render('forum',{ 
-                list:list
-            });
+            if(req.query.username==='' || req.query.username === undefined){
+                res.render('forum',{list:list});
+            }
+            else{ 
+                const filteredLists = list.filter(l => l.username === req.query.username);
+                res.render('forum',{message: req.query.username, list: filteredLists});
+            }
+
         });
-    }
+ }
     else{
-        req.redirect('/');
+        res.redirect('/');
     }
-    
-   /* const p = new Post({
-        title: req.body.title,
-        list_name: req.body.list_name,
-        author: req.session.user.username,
-        university: req.session.user.university,
-        comment: req.body.comment
 
-    });
+});
 
-    p.save((err,post)=>{
-         if (err){
-             console.log(err);
-         }
-         else{
-              res.json(post);
-         }
-    });*/
-});
-/*
-app.get('/forum/:id/comments/', (req, res)=>{ 
-    Post.findByIdAndUpdate(req.params['id'],{
-        "$push":{ 
-            comment: req.body['comment']
-        }
-    }, (err, docs)=>{
-        if(err){
-            res.json({
-                "error": "Comment was not added, try again"
-            });
-        }else{
-            res.json({
-                "message": "Update to comments succcesful",
-                "docs": docs
-            });
-        }
-    });
-});
-*/
 app.get('/forum',(req,res)=>{
     Post.find({}, function (err, post){
         res.render('forum');
@@ -382,6 +352,7 @@ app.get('/profile/:username',(req,res)=>{
 
 app.post('/profile/:username',(req,res)=>{
     if(req.session.user.username){
+       // console.log('made it');
     User.findOneAndUpdate(
         {username: req.session.user.username},
         {$push:{university:req.body.university }},

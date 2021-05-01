@@ -33,7 +33,7 @@ const UserSchema = new Schema ({
     email: String,
     password: {type:String, unique:true, require:true},
     //Other information for "profile", all optional
-    univeristy: {type: String,required:false},
+    univeristy: [ String],
     kangaroo_lists: [{type: Schema.Types.ObjectId, ref: 'KangarooList', required:false}],
     //likes: [{type: Schema.Types.ObjectId, ref: 'Likes', required:'false'}],
     //likes: [String],
