@@ -364,6 +364,7 @@ app.get('/profile/:username',(req,res)=>{
                 university: user.university,
                 email:user.email,
                 list: lists,
+                topics:user.topics,
             });
         });
     });
