@@ -183,7 +183,7 @@ app.get('/create/list',function(req,res){
 
 app.post('/create/list',function(req,res){
     if(req.session.user.username){
-        console.log(req.session);
+        
         new KangarooList({
             username:  req.session.user.username, //req.session.user.username, 
             list_name: req.body.listName,
@@ -202,6 +202,20 @@ app.post('/create/list',function(req,res){
                 //res.redirect('/index');
             }
         });
+
+        User.findOne({username: req.session.user.username},function(err,current){
+            KangarooList.findOneAndUpdate(
+                {list_name: req.body.listName},
+                {$push:{university:current.university}},
+                function (err, success){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                         console.log(success);
+                    }
+                })
+        })
 
 
     }
@@ -293,16 +307,20 @@ app.post('/login',(req,res)=>{
 
 app.get('/forum',(req,res)=>{
  if(req.session.user){
-        KangarooList.find({},function(err,list){
+        KangarooList.find({shared:true},function(err,list){
             if(err){
                 console.log(err);
             }
-            if(req.query.username==='' || req.query.username === undefined){
+            if((req.query.username==='' || req.query.username === undefined) && (req.query.university==='' || req.query.university===undefined)){
                 res.render('forum',{list:list});
             }
-            else{ 
+            if(req.query.username){ 
                 const filteredLists = list.filter(l => l.username === req.query.username);
                 res.render('forum',{message: req.query.username, list: filteredLists});
+            }
+            if(req.query.universiety){
+                const filteredLists2 = list.filter(l => l.university === req.query.university);
+                res.render('forum',{message: req.query.university, list: filteredLists2});
             }
 
         });
@@ -313,13 +331,7 @@ app.get('/forum',(req,res)=>{
 
 });
 
-app.get('/forum',(req,res)=>{
-    Post.find({}, function (err, post){
-        res.render('forum');
-        //res.json({err,post});
-    })
 
-}); 
 //Profile Section 
 app.get('/profile',(req,res)=>{
    const username = req.session.user.username;
@@ -349,7 +361,7 @@ app.get('/profile/:username',(req,res)=>{
         res.redirect('/');
     }
 });
-
+/*
 app.post('/profile/:username',(req,res)=>{
     if(req.session.user.username){
        // console.log('made it');
@@ -374,4 +386,44 @@ app.post('/profile/:username',(req,res)=>{
     }
 })
 
+*/
+app.get('/editProfile',function(req,res){
+    if(req.session.user.username){
+        res.render('editProfile',{}); 
+    }
+    else{
+        res.redirect('/');
+    }
+});
+
+app.post('/editProfile',function(req,res){
+    if(req.session.user.username){
+      /*  KangarooList.find({},function(err, kangarooLists){
+            if(err){
+                console.log(err);
+            }
+            res.send('create-page',{ list: kangarooLists})
+        });*/
+       
+       
+
+
+       User.findOneAndUpdate(
+           {username: req.session.user.username},
+           {$push:{university:req.body.university, topics: req.body.topics}},
+           function (err, success){
+               if(err){
+                   console.log(err);
+               }
+               else{
+                    console.log(success);
+               }
+           })
+       
+          
+    }
+    else{
+       res.redirect('/');
+    }
+});
 app.listen(process.env.PORT || 3000);
