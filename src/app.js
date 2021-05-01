@@ -264,7 +264,6 @@ app.get('/create',function(req,res){
 })
 
 
-//Repeat for create List
 
 
 app.get('/createAccount',(req,res)=>{
