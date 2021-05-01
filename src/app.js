@@ -396,7 +396,7 @@ app.post('/editProfile',function(req,res){
                }
                else{
                     console.log(success);
-                    res.redirect('/');
+                    res.redirect('/profile');
                }
            })
        
