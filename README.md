@@ -4,7 +4,9 @@ Applied Internet Technologies
 Spring 2021
 
 Final Project: Milestone #1
-To Run: PORT=10970 NODE_ENV=PRODUCTION node src/app.js
+To Run:http://linserv1.cims.nyu.edu:10970/
+- To try a new user, clear cookies 
+
 # Kangaroo
 ## Overview
  As a student or researcher, there are often endless websites, papers, links to return to. 
