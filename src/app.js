@@ -335,19 +335,20 @@ app.get('/forum',(req,res)=>{
 
 
 //Profile Section 
+/*
 app.get('/profile',(req,res)=>{
     if(req.session.user){
-   const username = req.session.user.username;
-    res.redirect('/'+username);
+   //const username = req.session.user.username;
+   // res.redirect('/profile/'+username);
     //res.render('profile');
     }
     else{
         res.redirect('/');
     }
 })
+*/
 
-
-app.get('/:username',(req,res)=>{
+app.get('/profile',(req,res)=>{
     if(req.session.user){
     User.findOne({username: req.session.user.username},function(err,user){
         KangarooList.find({username:req.session.user.username},function(err,lists){
