@@ -319,19 +319,15 @@ app.get('/forum',(req,res)=>{
                 const newmessage = req.query.username + " "+ req.query.university;
                 res.render('forum',{message: newmessage , list: newfilter});
             }
-            if(req.query.username){ 
+            if(req.query.username && (req.query.university==='' || req.query.university===undefined)){ 
                 const filteredLists = list.filter(l => l.username === req.query.username);
                 res.render('forum',{message: req.query.username, list: filteredLists});
             }
-            if(req.query.university){
+            if(req.query.university && (req.query.username==='' || req.query.username === undefined)){
                 const filteredLists2 = list.filter(l => l.university === req.query.university);
                 res.render('forum',{message: req.query.university, list: filteredLists2});
             }
-            /*if(req.query.sort){
-                 list.sort({date:-1}).exec(function(err,items){
-                    res.render('forum',{message:"Sorted By Date",list:items});
-                        });
-                    }   */
+          
             else{
                 res.render('forum',{list:list});
             }
