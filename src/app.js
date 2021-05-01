@@ -381,7 +381,7 @@ app.get('/editProfile',function(req,res){
 
 app.post('/editProfile',function(req,res){
     if(req.session.user){
-     
+     /*
        User.findOneAndUpdate(
            {username: req.session.user.username},
            {$set:{university:req.body.university}}, {$push:{topics: req.body.topics}},
@@ -393,7 +393,7 @@ app.post('/editProfile',function(req,res){
                     console.log(success);
                   
                }
-           })
+           })*/
 
            KangarooList.updateMany(
             {username: req.session.user.username},
