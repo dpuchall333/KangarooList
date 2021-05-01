@@ -54,7 +54,7 @@ app.get('/',function(req,res){
 }); 
 
 app.get('/create/page',function(req,res){
-    if(req.session.user.username){
+    if(req.session.user){
         res.render('create-page',{}); 
     }
     else{
@@ -63,7 +63,7 @@ app.get('/create/page',function(req,res){
 });
 
 app.post('/create/page',function(req,res){
-    if(req.session.user.username){
+    if(req.session.user){
       /*  KangarooList.find({},function(err, kangarooLists){
             if(err){
                 console.log(err);
@@ -365,7 +365,7 @@ app.get('/profile/:username',(req,res)=>{
 });
 
 app.get('/editProfile',function(req,res){
-    if(req.session.user.username){
+    if(req.session.user){
         res.render('editProfile',{}); 
     }
     else{
@@ -374,7 +374,7 @@ app.get('/editProfile',function(req,res){
 });
 
 app.post('/editProfile',function(req,res){
-    if(req.session.user.username){
+    if(req.session.user){
      
        User.findOneAndUpdate(
            {username: req.session.user.username},
