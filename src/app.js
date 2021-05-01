@@ -324,7 +324,7 @@ app.get('/forum',(req,res)=>{
                 res.render('forum',{message: req.query.username, list: filteredLists});
             }
             if(req.query.university && (req.query.username==='' || req.query.username === undefined)){
-                const filteredLists2 = list.filter(l => l.university === req.query.university);
+                const filteredLists2 = list.filter(l => l.includes( req.query.university));
                 res.render('forum',{message: req.query.university, list: filteredLists2});
             }
           
