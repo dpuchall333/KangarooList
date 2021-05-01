@@ -222,7 +222,7 @@ app.get('/list/:slug',(req,res)=>{
     if(req.session.user.username){
     KangarooList.findOne({slug: req.params.slug}, function(err,list){
         User.findOne({'_id':list.id},function(err,user){
-            Page.find({'list_name':list.list_name}).sort({date: -1}).exec(function(err, page){
+            Page.find({'list_name':list.list_name}).sort({date: 1}).exec(function(err, page){
                 res.render('myLists',{
 
                 username:list.username,
