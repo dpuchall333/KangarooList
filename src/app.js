@@ -270,7 +270,7 @@ app.post('/createAccount', (req, res) => {
         });
     }
     auth.createAccount(req.body.username, req.body.email, req.body.password, errorCB, successCB);
-    //res.redirect("register");
+  
 });
 
 app.get('/login',(req,res)=>{
@@ -374,6 +374,14 @@ app.get('/profile/:username',(req,res)=>{
         });
     });
 
+    }
+    else{
+        res.redirect('/');
+    }
+});
+
+app.post('/profile/:username',(req,res)=>{
+    if(req.session.user.username){
     User.findOneAndUpdate(
         {username: req.session.user.username},
         {$push:{university:req.body.university }},
@@ -382,13 +390,17 @@ app.get('/profile/:username',(req,res)=>{
                 console.log(err);
             }
             else{
-                 console.log(success);
+                console.log(success);
+                //res.redirect('/profile');
             }
+
+            
         })
+       
     }
     else{
         res.redirect('/');
     }
-});
+})
 
 app.listen(process.env.PORT || 3000);

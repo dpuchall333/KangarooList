@@ -5,6 +5,11 @@ p{
   color: fuchsia
 }
 
+.editProfile { 
+  display: none;
+  color: rgb(0, 0, 75);
+  background-color: rgb(176, 194, 149);
+}
 
 
 #content {
