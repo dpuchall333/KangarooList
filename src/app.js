@@ -394,7 +394,7 @@ app.post('/editProfile',function(req,res){
                   
                }
            })
-/*
+
            KangarooList.updateMany(
             {username: req.session.user.username},
             {$set:{university:req.body.university}},
@@ -406,7 +406,7 @@ app.post('/editProfile',function(req,res){
                      console.log(success);
                   
                 }
-            })*/
+            })
             res.redirect('/profile');
             
     }
